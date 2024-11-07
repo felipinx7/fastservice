@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --cor-de-fundo: #d6d2d2;
+    --cor-de-variação: #fba900;
+    --cor-da-fonte: #6a6464;
+}
+
+/*======================================================================RESET PADDRÃO============================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-y: hidden;
+}
+
+.container-pratos {
+    width: 80%;
+    max-width: 1200px;
+    text-align: center;
+}
+
+.h1-main {
+    font-size: 2em;
+    transform: translateY(1rem);
+    margin: 20px 0;
+}
+
+.hr-main {
+    border: 1px solid #ccc;
+    transform: translateY(-0.1rem);
+}
+
+.pratos-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: flex-start;
+    margin-top: 20rem;
+    transform: translateY(-19rem);
+    max-height: 40rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.card-prato {
+    display: flex;
+    flex-direction: column;
+    width: 73rem;
+    height: 12rem;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.card-prato img {
+    position: absolute;
+    width: 9rem;
+    height: 6rem;
+    margin-top: -0.5rem;
+    border-radius: 20px;
+}
+
+
+.card-prato h2 {
+    font-size: 1.2em;
+    margin-top: 0.2rem;
+    margin-left: 10rem;
+}
+
+.card-prato p {
+    margin-left: 10rem;
+    color: #555;
+}
+
+.card-prato .preco {
+    font-weight: bold;
+    color: #fba900;
+    margin-left: 10rem;
+}
+
+.btn-remover {
+    position: absolute;
+    width: 10rem;
+    height: 3rem;
+    margin-left: 60rem;
+    margin-top: 1rem;
+    border-radius: 20px;
+    border: none;
+    background-color: #ef0808;
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.btn-remover:hover {
+    background-color: #d32f2f;
+}

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAST-SERVICE</title>
+    <!-- LINK DA BIBLIOTECA USADA NO CARROSEL -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- ARQUIVO CSS -->
+    <link rel="stylesheet" href="assets/menu1.css">
+    <!-- ICONE DO LOGO -->
+    <link rel="shortcut icon" href="img/logo-fs-png.png" type="image/x-icon">
+    <!-- PARTE DO FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- PARTE DO BOOTSTRAP -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+</head>
+
+<body>
+    
+    <!--========================================== PARTE DE QUE O PEDIDO FOI BEM SUCEDIDO ========================================-->
+    <div class="success">
+        <div class="div">
+            <div class="success-prompt-heading">Pedido Realizado!</div>
+            <div class="success-prompt-prompt">Seu pedido foi realizado com sucesso. <br> Espere cerca de 10 minutos!
+            </div>
+            <div class="icon">
+                <img src="img/icone-pagamento-orange.png" class="icone-pagamneto-ip" alt="">
+            </div>
+            <div class="success-button-container">
+                <button class="success-button-secondary" id="btn-finishi">Voltar ao Menu</button>
+            </div>
+        </div>
+    </div>
+    <!--====================================================== PARTE DO CARRINHO  =============================================-->
+    <div class="container-carrinho">
+        <h1 class="h1-parte-carrinho">Ordem de Pedidos</h1>
+        <div class="container-pratos">
+            <div id="carrinho" class="carrinho"></div>
+        </div>
+        <div class="pagamentos">
+            <div class="cart-summary">
+                <p>Sub Total <span class="preçototall">R$00,0</span></p>
+                <p>Desconto <span>-R$00,0</span></p>
+                <p class="total">Valor Total <span class="totaltudo">R$00,0</span></p>
+            </div>
+            <div class="payment-options">
+                <div class="container-money">
+                    <button class="butao-parte--carrinho" data-pagamento="money"><i
+                            class="fas fa-money-bill-wave"></i></button>
+                    <div class="money">Money</div>
+                </div>
+                <div class="container-cartao">
+                    <button class="butao-parte--carrinho" data-pagamento="cartao"><i
+                            class="fas fa-credit-card"></i></button>
+                    <div class="cartao">Cartão</div>
+                </div>
+                <div class="container-pix">
+                    <button class="butao-parte--carrinho" data-pagamento="pix"><i class="fa-brands fa-pix"></i></button>
+                    <div class="pix">Pix</div>
+                </div>
+            </div>
+        </div>
+
+            <button class="finalizar" id="btn-finalizar">
+                <div class="texto-botao2">FINALIZAR</div>
+            </button>
+        </div>
+    </div>
+    <!--====================================================== PARTE DA CONTA ==============================================-->
+    <div class="container-conta">
+        <div class="parte-info-main">
+            <div class="perfil">
+                <img src="img/IMG-Instrutor.png" class="img-perfil" alt="">
+            </div>
+            <hr>
+            <div class="h4-saudacao">
+                <h4 class="h4-parte-conta">Seja Bem-vindo(a)</h4>
+            </div>
+            <br>
+            <div class="beneficio">
+                <p class="p-parte-conta">
+                    Faça seus pedidos em um clique!!
+                </p>
+            </div>
+        </div>
+        <div class="estabe">
+            <p class="p-parte-estabe">
+                Estabelecimento > <span class="span-parte-estabe">Mesa (Teste)</span>
+            </p>
+        </div>
+    </div>
+    <!--========================================================= PARTE DAS PROMOÇÕES DIARIAS ==================================-->
+    <div class="promocao">
+        <a href="#promocao">
+            <div class="banner-promocao swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="img/Banner Promoção-01.png" alt="Promoção 1">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/Banner Promoção-02.png" alt="Promoção 2">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/Banner Promoção-01.png" alt="Promoção 3">
+                    </div>
+                </div>
+            </div>
+            <div class="parte-navigation">
+                <div class="swiper-pagination"></div>
+            </div>
+        </a>
+    </div>
+    <div class="input">
+        <input type="text" id="input" class="input1" placeholder="Procure Pelo Prato desejado...">
+        <div class="icon-pesquisa">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+    </div>
+    <!---=================================================================== PARTE DAS CATEGORIAS  ============================================================================================= -->
+
+    <div class="container-categorias">
+        <div class="categoria">
+            <a href="#" class="active">
+                <i class="bi bi-grid"></i>
+                <p class="p-parte-categoria">Menu</p>
+            </a>
+        </div>
+        <div class="categoria">
+            <a href="#bebidas">
+                <i class="fa-solid fa-martini-glass-citrus"></i>
+                <p class="p-parte-categoria">Bebidas</p>
+            </a>
+        </div>
+        <div class="categoria">
+            <a href="#doces">
+                <i class="fa-solid fa-cookie"></i>
+                <p class="p-parte-categoria">Doces</p>
+            </a>
+        </div>
+        <div class="categoria">
+            <a href="#promocao">
+                <i class="bi bi-ticket"></i>
+                <p class="p-parte-categoria">Promoção</p>
+            </a>
+        </div>
+        <div class="categoria star">
+            <a href="#favoritos">
+                <i class="fa-regular fa-star"></i>
+                <p class="p-parte-categoria">Favoritos</p>
+            </a>
+        </div>
+    </div>
+    <div class="container-menu" id="menu">
+        <h1 class="h1-do-menu">Categoria do <span>Menu</span></h1>
+        <!-- <button class="btn-adicionar" id="btn" onclick="adicionarCard()">Adicionar</button> -->
+        <div class="container-pratos-menu" id="container-pratos-menu">
+
+        </div>
+    </div>
+    <div class="container-bebidas" id="bebidas">
+        <h1 class="h1-da-bebida">Categoria das <span>Bebidas</span></h1>
+        <div class="container-parte-bebidas" id="container-pratos-menu">
+
+        </div>
+    </div>
+    <div class="container-promocoes" id="promocao">
+        <h1 class="h1-da-promocao">Categoria de <span>Promoções</span></h1>
+        <div class="container-parte-promocao" id="container-pratos-menu">
+
+        </div>
+    </div>
+    <div class="container-parte-doces" id="doces">
+        <h1 class="h1-de-doces">Categoria de <span>Doces</span></h1>
+        <div class="container-doces" id="container-pratos-menu">
+
+        </div>
+    </div>
+    <div class="container-favoritos" id="favoritos">
+        <h1 class="h1-de-favorito">Categoria de <span>Favoritos</span></h1>
+        <div class="container-parte-favorito" id="container-pratos-menu">
+
+        </div>
+    </div>
+   
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/finalizar-pedidos.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/AdicionarCard.js"></script>
+    <script src="js/cardcarrinho.js"></script>
+    <!-- BLIBLIOTECA SRCOLLREVEAL -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- PARTE DO BOOTSTRAP -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
