@@ -6,8 +6,6 @@ const pathConfig = require('./config/path.config');
 const app = express();
 const post = require('./models/pedidos')
 
-
-
 app.use('/public', express.static(pathConfig.publicPath));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -24,15 +22,19 @@ app.use(bodyParser.json())
 app.get('/', function(req, res){
     res.render('login')
 })
-app.get('/views/cadastrar', function(req, res){
+app.get('/views/cadastrar.hbs', function(req, res){
     res.render('cadastrar')
 })
 
-app.get('/balconista1', function(req, res){
-    res.render('balconista1')
+app.get('/ADM', function(req, res){
+    res.render('ADM')
 })
 app.get('/fast-service', function(req, res){
     res.render('fast-service')
+})
+
+app.get('/menu', function(req, res){
+    res.render('menu')
 })
 
 const sequelize = new Sequelize('db_startup', 'root', '', {
