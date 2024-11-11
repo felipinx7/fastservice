@@ -1,0 +1,180 @@
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Comprovante de Pedido</title>
+        <style>
+            /* Estilos básicos para o comprovante */
+            body {
+                font-family: Arial, sans-serif;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                background-color: #f5f5f5;
+            }
+
+            .receipt {
+                width: 320px;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                text-align: center;
+            }
+
+            /* Logo */
+            .logo img {
+                max-width: 80%;
+                margin-bottom: 15px;
+            }
+
+            /* Informações do pedido */
+            .order-info {
+                text-align: left;
+                margin-top: -20px;
+            }
+
+            .order-info h3 {
+                margin: 0;
+                font-size: 18px;
+                border-bottom: 1px solid #ddd;
+                padding-bottom: 10px;
+            }
+
+            /* Número da mesa */
+            .table-number {
+                font-size: 16px;
+                color: #333;
+                font-weight: bold;
+                text-align: left;
+                margin-top: 10px;
+            }
+
+            /* Método de pagamento */
+            .payment-method {
+                font-size: 16px;
+                color: #333;
+                font-weight: bold;
+                text-align: left;
+                margin-top: 10px;
+            }
+
+            /* Linha do item */
+            .order-item {
+                display: flex;
+                justify-content: space-between;
+                padding: 8px 0;
+                border-bottom: 1px dashed #ddd;
+                font-size: 14px;
+            }
+
+            .order-total {
+                display: flex;
+                justify-content: space-between;
+                padding-top: 15px;
+                font-weight: bold;
+                font-size: 16px;
+            }
+
+            /* Texto do rodapé */
+            .footer-text {
+                font-size: 12px;
+                color: #666;
+                margin-top: 20px;
+            }
+
+            /* Botão de gerar comprovante */
+            .btn-gerar {
+                margin-top: 20px;
+                padding: 10px 20px;
+                font-size: 16px;
+                border: none;
+                border-radius: 5px;
+                background-color: #007bff;
+                color: white;
+                cursor: pointer;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            }
+            .img{
+                width: 10rem;
+            }
+            .btn-gerar:hover {
+                background-color: #0056b3;
+            }
+        </style>
+        <!-- Importando a biblioteca html2canvas -->
+        <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    </head>
+    <body>
+        <div class="receipt" id="comprovante">
+            <div class="logo">
+                <img src="/public/css,js/img/fast-service.png" class="img" alt="Logo Fast Service">
+            </div>
+
+            <!-- Informações do Pedido -->
+            <div class="order-info">
+                <h3>Comprovante de Pedido</h3>
+                
+                <!-- Número da mesa -->
+                <div class="table-number">
+                    Mesa: <span id="numeroMesa">12</span> <!-- Aqui você pode alterar o número da mesa -->
+                </div>
+
+                <!-- Método de pagamento -->
+                <div class="payment-method">
+                    Método de pagamento: <span id="metodoPagamento">Cartão de Crédito</span>
+                </div>
+
+                <!-- Cabeçalho dos itens -->
+                <div class="order-item">
+                    <span>Nome do Pedido</span>
+                    <span>Quantidade</span>
+                    <span>Preço</span>
+                </div>
+
+                <!-- Itens do Pedido -->
+                <div class="order-item">
+                    <span>Prato A</span>
+                    <span>2</span>
+                    <span>R$ 20,00</span>
+                </div>
+                <div class="order-item">
+                    <span>Prato B</span>
+                    <span>1</span>
+                    <span>R$ 15,00</span>
+                </div>
+
+                <!-- Total -->
+                <div class="order-total">
+                    <span>Total</span>
+                    <span>R$ 55,00</span>
+                </div>
+            </div>
+
+            <!-- Texto no rodapé -->
+            <div class="footer-text">
+                Obrigado pela preferência!
+            </div>
+             <!-- Botão para gerar a imagem -->
+        <button class="btn-gerar" onclick="gerarComprovante()">Gerar Comprovante</button>
+        </div>
+        <script>
+            // Função para capturar o comprovante e gerar uma imagem
+            function gerarComprovante() {
+                const comprovante = document.getElementById("comprovante");
+
+                html2canvas(comprovante).then((canvas) => {
+                    // Criar um link temporário para fazer download da imagem
+                    const link = document.createElement("a");
+                    link.href = canvas.toDataURL("image/png");
+                    link.download = "comprovante.png";
+                    link.click();
+                });
+            }
+        </script>
+    </body>
+    </html>
