@@ -1,695 +1,1177 @@
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-    :root {
-        --cor-de-fundo: #d6d2d2;
-        --cor-de-variação: #fba900;
-        --cor-da-fonte: #6a6464;
-    }
-
-    /*======================================================================RESET PADDRÃO============================================================ */
-    * {
-        margin: 0;
-        padding: 0;
-        font-family: "Poppins", sans-serif;
-        box-sizing: border-box;
-        list-style: none;
-        text-decoration: none;
-    }
-    body {
-        overflow-x: hidden;
-        width: 100%;
-        height: 100%;
-    }
-    .radio-inputs {
-        position: relative;
-        display: flex;
-        flex-wrap: wrap;
-        border-radius: 0.5rem;
-        background-color: #EEE;
-        box-sizing: border-box;
-        box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
-        padding: 0.25rem;
-        width: 52rem;
-        font-size: 14px;
-        margin-left: 15rem;
-        transform: translateY(11rem);
-    }
-
-    .radio-inputs .radio {
-        flex: 1 1 auto;
-        text-align: center;
-    }
-
-    .radio-inputs .radio input {
-        display: none;
-    }
-
-    .radio-inputs .radio .name {
-        display: flex;
-        cursor: pointer;
-        align-items: center;
-        justify-content: center;
-        border-radius: 0.5rem;
-        border: none;
-        padding: .5rem 0;
-        color: rgba(51, 65, 85, 1);
-        transition: all .15s ease-in-out;
-    }
-
-    .radio-inputs .radio input:checked+.name {
-        background-color: var(--cor-de-variação);
-        color: white;
-        font-weight: 600;
-    }
-
-
-    .div-pedidos {
-        width: 62rem;
-        position: absolute;
-        max-height: 30rem;
-        display: flex;
-        flex-direction: column;
-        margin-left: 1rem;
-        margin-top: -0.5rem;
-        transform: translateY(5rem);
-    }
-
-    .setas {
-        position: absolute;
-        transform: translate(67.9rem, -10rem);
-        display: flex;
-        z-index: 1;
-    }
-
-    .seta-volta {
-        cursor: pointer;
-        width: 3rem;
-        height: 3rem;
-        background-color: #fba900;
-        border-radius: 50%;
-        text-align: center;
-        font-size: 3rem;
-        color: white;
-        margin-left: 5rem;
-        margin-top: 1rem;
-    }
-
-    .seta-prossegue {
-        cursor: pointer;
-        width: 3rem;
-        height: 3rem;
-        background-color: #fba900;
-        border-radius: 50%;
-        text-align: center;
-        font-size: 3rem;
-        color: white;
-        margin-left: 3rem;
-        margin-top: 1rem;
-    }
-    .diferente{
-        rotate: 180deg;
-        margin-top: -1.2rem;
-    }
-    .texto-btn {
-        transform: translateY(-0.5rem);
-    }
-
-
-    .div-pedidos2 {
-        width: 60rem;
-        position: absolute;
-        max-height: 30rem;
-        overflow-x: hidden;
-        display: flex;
-        flex-direction: column;
-        margin-left: 1rem;
-        margin-top: -0.5rem;
-        transform: translateY(2.3rem);
-    }
-
-    .div-pedidos3 {
-        width: 60rem;
-        position: absolute;
-        max-height: 30rem;
-        overflow-x: hidden;
-        display: flex;
-        flex-direction: column;
-        margin-left: 1rem;
-        margin-top: 4.5rem;
-        transform: translateY(-1rem);
-    }
-
-    .div-pedidos::-webkit-scrollbar {
-        display: none;
-    }
-
-    .btn-mover {
-        position: absolute;
-        width: 6rem;
-        height: 2rem;
-        border-radius: 10px;
-        border: none;
-        color: white;
-        font-weight: 700;
-        margin-left: 45rem;
-        margin-top: 2.4rem;
-        cursor: pointer;
-        background-color: rgb(76, 236, 76);
-        transition: background-color 0.3s ease;
-        white-space: nowrap;
-    }
-
-    .btn-mover1 {
-        position: absolute;
-        width: 6rem;
-        height: 2rem;
-        border-radius: 10px;
-        border: none;
-        color: white;
-        font-weight: 700;
-        margin-left: 45rem;
-        margin-top: 2.3rem;
-        cursor: pointer;
-        background-color: rgb(76, 236, 76);
-        transition: background-color 0.3s ease;
-        white-space: nowrap;
-    }
-
-
-    .container {
-        max-height: 400px;
-        width: 100% !important;
-        overflow: hidden;
-        max-height: 100rem;
-        margin-left: 4.7rem;
-        transform: translateY(4rem);
-    }
-
-    #pendentes {
-        display: block;
-    }
-
-    #processo {
-        display: none;
-        margin-top: 3rem;
-    }
-
-    #completos {
-        position: relative;
-        display: none;
-        margin-top: 1rem;
-    }
-
-    .list-pedidos {
-        transform: translateY(4.5rem);
-        margin-left: 15rem;
-    }
-
-    .scrollbar {
-        position: absolute;
-        left: 13rem;
-        top: 0;
-        transform: translateY(15rem);
-        bottom: 0;
-        width: 12px;
-        background-color: #f1f1f1;
-        border-radius: 10px;
-        height: 60%;
-        margin: 0 0 0 0;
-    }
-
-    .scrollbar-thumb {
-        background-color: #ffc400;
-        border-radius: 10px;
-        width: 100%;
-        height: 10rem;
-        position: absolute;
-        top: 0;
-        cursor: pointer;
-    }
-
-    .container::-webkit-scrollbar {
-        display: none;
-    }
-
-    .pedidos {
-        border: solid 2px var(--cor-de-variação);
-        border-radius: 1.3rem;
-        width: 53rem;
-        height: 5rem;
-        transform: translate(9rem, -0rem);
-        margin-top: 1rem;
-    }
-
-    .click {
-        cursor: pointer;
-        width: 30rem;
-        height: 5rem;
-        background-color: transparent;
-        margin-left: 10rem;
-    }
-
-    .pedido {
-        margin-top: -12rem;
-        overflow-y: auto;
-    }
-
-    .h1 {
-        font-size: 1rem;
-    }
-
-    .pedidos h1.h1-blaconista {
-        position: absolute;
-        transform: translateX(1.3rem);
-        margin-top: 0.2rem;
-        font-size: 0.4xrem;
-        color: var(--cor-da-fonte);
-        font-weight: 600;
-        z-index: 1;
-    }
-
-    .p-horas {
-        position: absolute;
-        font-size: 0.8rem;
-        color: var(--cor-da-fonte);
-        transform: translate(46rem, 0.4rem);
-    }
-
-    .p-mesas {
-        color: #555;
-        position: absolute;
-        font-weight: 600;
-        transform: translate(1.4rem, 1.5rem);
-    }
-
-    .p-qtd {
-        position: absolute;
-        font-weight: 700;
-        font-size: 0.9rem;
-        color: #555;
-        transform: translate(1.4rem, 2.8rem);
-    }
-
-    .p-preco-total {
-        position: absolute;
-        color: black;
-        font-weight: 700;
-        transform: translate(40rem, 3rem);
-    }
-
-    .p-preco-total2 {
-        position: absolute;
-        color: black;
-        font-weight: 700;
-        transform: translate(46rem, 3rem);
-    }
-
-    .p-preco-total3 {
-        position: absolute;
-        color: black;
-        font-weight: 700;
-        transform: translate(40rem, 3rem);
-    }
-
-    .bnt-aceitar {
-        position: absolute;
-        width: 5rem;
-        height: 2rem;
-        border: none;
-        border-radius: 10px;
-        transform: translate(45rem, 2.5rem);
-        background-color: rgb(76, 236, 76);
-        transition: background-color 0.3s ease;
-        cursor: pointer;
-        color: white;
-        font-weight: 700;
-        pointer-events: none;
-    }
-
-    .bnt-aceitar:hover,
-    .btn-mover:hover,
-    .btn-mover1:hover {
-        background-color: rgb(55, 190, 55);
-    }
-
-    .pedidos-aceitos {
-        overflow-y: hidden;
-        overflow-x: hidden;
-        position: absolute;
-        width: 40rem;
-        height: 47rem;
-        background-color: white;
-        transform: translateY(-11rem);
-        margin-left: 60rem;
-        margin-top: -2rem;
-        border-left: solid 5px #ffc400;
-    }
-    .img-perfil {
-        width: 3.5vw;
-        margin-left: 1.4rem;
-    }
-
-    .conta {
-        width: 2vw;
-        rotate: 90deg;
-        background-color: #000;
-        border: none;
-        height: 0.1vh;
-        transform: translate(-2rem, -1.8rem);
-    }
-
-    .btn-adicionar {
-        position: absolute !important;
-        width: 10rem;
-        height: 3rem;
-        border-radius: 20px;
-        border: none;
-        background-color: #ffc400;
-        color: white;
-        font-weight: 700;
-        margin-left: 45rem;
-        margin-top: -6rem;
-        cursor: pointer;
-        transition: background-color 0.2s ease-in-out;
-    }
-
-    .btn-remover {
-        position: absolute;
-        width: 10rem;
-        height: 3rem;
-        border-radius: 20px;
-        border: none;
-        background-color: #ffc400;
-        color: white;
-        font-weight: 700;
-        margin-left: 32rem;
-        margin-top: -6rem;
-        cursor: pointer;
-        transition: background-color 0.2s ease-in-out;
-    }
-
-    .btn-adicionar:hover,
-    .btn-remover:hover {
-        background-color: #fba900;
-    }
-
-    .parte-info-main {
-        position: absolute;
-        margin-top: -7rem;
-        margin-left: 3rem;
-    }
-
-    .h4-parte-conta {
-        font-size: 1rem;
-        transform: translate(5rem, -3.3rem);
-    }
-
-    .p-parte-conta {
-        font-size: 0.8rem;
-        margin-top: -5rem;
-        margin-left: 5rem;
-    }
-
-    @media (max-width: 1000px) {
-        body {
-            width: 100%;
-            max-width: 90rem;
-            overflow-x: hidden;
-        }
-
-        .pedidos-aceitos {
-            height: 65rem;
-            transform: translate(48rem, -33rem);
-        }
-
-        .div-status {
-            transform: translateX(13rem);
-        }
-    }
-
-    @media (max-width: 576px) {
-
-        body,
-        html {
-            position: absolute;
-            width: 100%;
-            height: 90rem;
-            overflow-x: hidden;
-        }
-
-        .div-status {
-            flex-direction: column;
-            padding: 1rem;
-            transform: translateX(0);
-            text-align: center;
-        }
-
-        .div-processo {
-            width: 100%;
-            margin-bottom: 1rem;
-            transform: none;
-            height: 2.3rem;
-        }
-
-        .div-completo {
-            width: 100%;
-            margin-bottom: 1rem;
-            transform: none;
-            height: 2.3rem;
-        }
-
-        .pedidos {
-            width: 100%;
-            height: auto;
-            transform: none;
-            margin: 1rem auto;
-        }
-
-        .h1-blaconista {
-            font-size: 1rem;
-            transform: none;
-            margin: 0.5rem 0;
-            margin-left: 1rem;
-        }
-
-        .p-horas {
-            margin-left: -29rem;
-            margin-top: 0rem;
-        }
-
-        .p-mesas,
-        .p-qtd,
-        .p-preco-total {
-            position: static;
-            text-align: left;
-            margin-left: 0;
-            margin-top: 0.5rem;
-            transform: translate(20px, -5px)
-        }
-
-        .p-qtd {
-            transform: translate(1rem, 0.2rem);
-        }
-
-        .p-mesas {
-            margin-top: 1rem;
-            transform: translate(1rem, 0.7rem);
-        }
-
-        .bnt-aceitar {
-            width: 30%;
-            transform: none;
-            margin: 1rem auto;
-            margin-left: 13.9rem;
-            margin-top: -2.4rem;
-        }
-
-        .pedidos-aceitos {
-            width: 105%;
-            height: 45rem;
-            transform: none;
-            margin: 2rem auto;
-        }
-
-        .h1-aceitos {
-            transform: none;
-            font-size: 1.2rem;
-            text-align: center;
-            margin: 1rem 0;
-            margin-left: -13rem;
-        }
-
-        .textos-mesas {
-            margin-left: 0;
-            text-align: center;
-        }
-
-        .p-mesa,
-        .number-mesa {
-            margin: 0.5rem 0;
-            margin-left: 14rem;
-            transform: translateY(-2.4rem);
-        }
-
-        .number-mesa {
-            transform: translateY(-3rem);
-        }
-
-        .div-foto {
-            width: 27%;
-            height: 10%;
-            transform: none;
-            margin-top: -2rem;
-            margin-left: 1rem;
-        }
-
-        .div-pedidos-aceitos {
-            margin-top: 3.5rem;
-            transform: none;
-        }
-
-        .h3-pedidos {
-            margin-top: -1.5rem;
-            margin-left: 7.5rem;
-        }
-
-        .p-preco {
-            transform: translateY(-2.6rem);
-
-        }
-
-        .p-qtd-pratos {
-            margin-top: -2.5rem;
-            margin-left: 12.5rem;
-        }
-
-        hr {
-            width: 84%;
-            margin: 1rem auto;
-            transform: translateY(2rem);
-            margin-left: 1.5rem;
-        }
-
-        .parte-direita {
-            position: static;
-            margin-left: 1rem;
-            transform: translateY(-0.5rem);
-            text-align: center;
-        }
-
-        .parte-esquerda {
-            position: absolute;
-            margin-left: 1rem;
-            margin-top: -1.5rem;
-            text-align: center;
-        }
-
-        .h1-preco-final {
-            font-size: 1rem;
-            text-align: center;
-            margin: 1rem 0;
-        }
-
-        .preco-total {
-            margin-left: 16rem;
-            transform: translateY(0.1rem);
-        }
-
-        .btn-final {
-            width: 80%;
-            margin: 1rem auto;
-            text-align: center;
-            margin-left: 2rem;
-        }
-
-        .img-perfil {
-            width: 3.5rem;
-            margin-left: -1rem;
-
-        }
-
-        .h4-parte-conta {
-            margin-top: 0.1rem;
-            margin-left: -2rem;
-            margin-left: -2rem;
-            white-space: break-word;
-        }
-
-        .conta {
-            width: 2rem;
-            position: absolute;
-            transform: translate(-3rem, -0.2rem);
-        }
-
-        .p-parte-conta {
-            margin-left: 3rem;
-        }
-
-        .radio-inputs {
-            width: 20rem;
-            margin-left: 1.3rem;
-            transform: translateY(3rem);
-        }
-
-        .pedidos {
-            width: 84%;
-            height: auto;
-            transform: none;
-            margin-left: 4rem;
-        }
-
-        .scrollbar {
-            left: 0rem;
-            top: 0;
-            transform: translateY(13rem);
-        }
-
-        .pedidos-aceitos {
-            margin-top: 12rem;
-            border: none;
-        }
-
-        .h1-aceitos {
-            margin-top: -2rem;
-            transform: translateY(4rem);
-        }
-
-        .number-mesa {
-            transform: translateY(0.2rem);
-        }
-
-        .p-mesa {
-            transform: translateY(1rem);
-        }
-
-        .codigo {
-            margin-left: 3.4rem;
-            transform: translateY(-2rem);
-        }
-
-        .pontilhado {
-            width: 20rem;
-            margin-top: -1rem;
-        }
-
-        .h3-pedidos {
-            margin-left: 8rem;
-        }
-
-        .p-preco {
-            margin-left: 8rem;
-        }
-
-        .bnt-aceitar {
-            margin-left: 13rem;
-        }
-
-        .list-pedidos {
-            margin-left: 3rem;
-            margin-top: -3rem;
-        }
-
-        .pedidos h1.h1-blaconista {
-            transform: translateX(0rem);
-        }
-    }
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --cor-de-fundo: #d6d2d2;
+    --cor-de-variação: #fba900;
+    --cor-da-fonte: #6a6464;
+    --cor-primaria: #202020;
+    --cor-secundaria: #fba900;
+    --cor-fundo: #f3f3f3f3;
+    --branco: #ffffff;
+}
+
+/*======================================================================RESET PADDRÃO============================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+/* PARTE DO CONTAINER LIST */
+
+main {
+    padding: 20px;
+    position: fixed;
+    z-index: 1;
+    padding-left: calc(82px + 20px);
+}
+
+#sidebar {
+    width: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #ff9d41;
+    height: 100vh;
+    border-radius: 0px 18px 18px 0px;
+    position: relative;
+    transition: all .5s;
+    min-width: 82px;
+    z-index: 2;
+}
+
+#sidebar_content {
+    padding: 12px;
+}
+
+#user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+#user_avatar {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+#user_infos {
+    display: flex;
+    flex-direction: column;
+}
+
+#user_infos span:last-child {
+    color: #ffffff;
+    font-size: 12px;
+}
+
+#side_items {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    list-style: none;
+}
+
+.icones {
+    font-size: 1.5rem;
+}
+
+.side-item {
+    border-radius: 8px;
+    padding: 14px;
+    cursor: pointer;
+}
+
+.side-item.active {
+    background-color: #ff7b00;
+}
+
+.side-item:hover:not(.active),
+#logout_btn:hover {
+    background-color: #fba600;
+}
+
+.side-item a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+
+.side-item.active a {
+    color: #e3e9f7;
+}
+
+.side-item a i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+
+#logout {
+    border-top: 1px solid #e3e9f7;
+    padding: 12px;
+}
+
+#logout_btn {
+    border: none;
+    padding: 12px;
+    font-size: 14px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    border-radius: 8px;
+    text-align: start;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+#open_btn {
+    position: absolute;
+    top: 30px;
+    right: -10px;
+    background-color: #e59346;
+    color: #e3e9f7;
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#open_btn_icon {
+    transition: transform .3s ease;
+}
+
+.open-sidebar #open_btn_icon {
+    transform: rotate(180deg);
+}
+
+.side-item.active {
+    background-color: #ff7b00;
+}
+
+.side-item.active a {
+    color: #e3e9f7;
+}
+
+.item-description {
+    width: 0px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    transition: width .6s;
+    height: 0px;
+    font-weight: 700;
+}
+
+#sidebar.open-sidebar {
+    min-width: 15%;
+}
+
+#sidebar.open-sidebar .item-description {
+    color: #ffffff;
+    width: 150px;
+    height: auto;
+}
+
+#sidebar.open-sidebar .side-item a {
+    justify-content: flex-start;
+    gap: 14px;
+}
+
+
+/*============= PARTE DO CONTAINER LISTA DE PRATOS ============*/
+.container-pratos-list {
+    margin-top: -45rem;
+    border-radius: 40px;
+    margin-left: 16rem;
+    width: 79rem;
+    height: 44rem;
+    background-color: var(--branco);
+}
+
+.banner-dashboar {
+    position: absolute;
+    margin-top: 8rem;
+    margin-left: 7rem;
+}
+
+.img-banner {
+    width: 50rem;
+}
+
+.radio-inputs {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    border-radius: 0.5rem;
+    background-color: #EEE;
+    box-sizing: border-box;
+    box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+    padding: 0.25rem;
+    width: 70rem;
+    font-size: 14px;
+    margin-left: 3rem;
+    z-index: 10;
+    transform: translateY(16rem);
+}
+
+.radio-inputs .radio {
+    text-align: center;
+    transform: none;
+}
+
+.radio-inputs .radio input {
+    display: none;
+}
+
+.radio-inputs .radio .name {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    padding: .5rem 0;
+    color: rgba(51, 65, 85, 1);
+    transition: all .15s ease-in-out;
+}
+
+.radio-inputs .radio input:checked+.name {
+    background-color: #ff8800;
+    color: white;
+    font-weight: 600;
+    width: 20rem;
+    margin-left: -2rem;
+}
+
+.a {
+    margin-left: 2rem;
+}
+
+.radio-inputs .radio input {
+    display: none;
+}
+
+.radio-inputs .radio .name {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    padding: .5rem 0;
+    color: rgba(51, 65, 85, 1);
+    transition: all .15s ease-in-out;
+}
+
+.radio-inputs .radio input:checked+.name {
+    background-color: var(--cor-de-variação);
+    color: white;
+    font-weight: 600;
+}
+
+.container-prato-list.blurred {
+    filter: blur(5px);
+    pointer-events: none;
+}
+
+.receipt {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    width: 450px;
+    background-color: #fff;
+    padding: 100px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin-left: 30rem;
+}
+.preco-prato{
+    position: absolute;
+    margin-left: 10rem;
+}
+
+.qtd-prato{
+    position: absolute;
+    margin-left: 18rem;
+}
+.preco-total-prato{
+    position: absolute;
+    transform: translateX(22rem);
+}
+.btn-gerar {
+    display: none;
+    width: 15rem;
+    position: absolute;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transform: translate(-7.5rem, 1rem);
+    z-index: 21;
+}
+
+.logo img {
+    max-width: 80%;
+    transform: translateY(-3rem);
+}
+
+.order-info {
+    text-align: left;
+    margin-top: -6rem;
+    margin-left: -5rem;
+}
+
+.order-info h3 {
+    margin: 0;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.table-number {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.payment-method {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed #ddd;
+    font-size: 14px;
+}
+
+.order-total {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.footer-text {
+    font-size: 12px;
+    color: #666;
+    margin-top: 20px;
+}
+.img {
+    width: 10rem;
+}
+
+.btn-gerar:hover {
+    background-color: #0056b3;
+}
+
+.texto-btn {
+    transform: translateY(-0.5rem);
+}
+
+.txt-link {
+    margin-left: 1rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.div-pedidos {
+    z-index: 3;
+    width: 80rem;
+    max-height: 30rem;
+    display: flex;
+    flex-direction: column;
+    margin-left: 6rem;
+    margin-top: -28rem;
+}
+
+.div-pedidos2 {
+    width: 85rem;
+    max-height: 36rem;
+    display: flex;
+    flex-direction: column;
+    margin-left: -9rem;
+    margin-top: -3rem;
+    z-index: 1;
+}
+
+.div-pedidos3 {
+    width: 85rem;
+    max-height: 36rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+    margin-left: 1rem;
+    z-index: 6;
+}
+
+.div-pedidos::-webkit-scrollbar {
+    display: none;
+}
+
+.btn-mover {
+    position: absolute;
+    width: 6rem;
+    height: 2rem;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-weight: 700;
+    margin-left: 45rem;
+    margin-top: 2.4rem;
+    cursor: pointer;
+    background-color: rgb(76, 236, 76);
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.btn-mover1 {
+    position: absolute;
+    width: 6rem;
+    height: 2rem;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-weight: 700;
+    margin-left: 60rem;
+    margin-top: 2.3rem;
+    cursor: pointer;
+    background-color: rgb(76, 236, 76);
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+
+.container {
+    max-height: 400px;
+    width: 100% !important;
+    overflow: hidden;
+    max-height: 24rem;
+    margin-left: -11.3rem;
+    overflow-y: auto;
+    transform: translateY(43rem);
+}
+
+#pendentes {
+    display: block;
+}
+
+#processo {
+    display: none;
+    margin-top: 3rem;
+    margin-left: -2.5rem;
+}
+
+#completos {
+    max-height: 30rem;
+    max-width: 90rem;
+    position: relative;
+    display: none;
+    margin-top: -2.5rem;
+    margin-left: -12.5rem;
+}
+
+.scrollbar {
+    z-index: 5;
+    position: absolute;
+    left: 18rem;
+    top: 7rem;
+    transform: translateY(15rem);
+    bottom: 0;
+    width: 12px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    height: 50%;
+    margin: 0 0 0 0;
+}
+
+.scrollbar-thumb {
+    background-color: #ff8800;
+    border-radius: 10px;
+    width: 100%;
+    height: 10rem;
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+}
+
+.container::-webkit-scrollbar {
+    display: none;
+}
+
+.pedidos {
+    border: solid 2px var(--cor-de-variação);
+    border-radius: 1.3rem;
+    width: 68.5rem;
+    height: 5rem;
+    transform: translate(9rem, 0rem);
+    margin-top: 1rem;
+}
+
+.pedidos-processo {
+    width: 90rem;
+    border: solid 2px var(--cor-de-variação);
+    border-radius: 1.3rem;
+    width: 68.5rem;
+    height: 5rem;
+    transform: translate(0.1rem, -1rem);
+    margin-top: 1rem;
+}
+
+.click {
+    cursor: pointer;
+    width: 30rem;
+    height: 5rem;
+    background-color: transparent;
+    margin-left: 10rem;
+}
+
+.pedido {
+    margin-top: -12rem;
+    overflow-y: auto;
+}
+
+.h1 {
+    font-size: 1rem;
+}
+
+.pedidos h1.h1-blaconista {
+    position: absolute;
+    transform: translateX(1.3rem);
+    margin-top: 0.2rem;
+    font-size: 0.4xrem;
+    color: var(--cor-da-fonte);
+    font-weight: 600;
+    z-index: 1;
+}
+
+.p-horas {
+    position: absolute;
+    font-size: 0.8rem;
+    color: var(--cor-da-fonte);
+    transform: translate(62rem, 0.4rem);
+}
+
+.p-mesas {
+    color: #555;
+    position: absolute;
+    font-weight: 600;
+    transform: translate(1.4rem, 1.5rem);
+}
+
+.p-qtd {
+    position: absolute;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #555;
+    transform: translate(1.4rem, 2.8rem);
+}
+
+.p-preco-total {
+    position: absolute;
+    color: black;
+    font-weight: 700;
+    transform: translate(23rem, 3rem);
+}
+
+.p-preco-total2 {
+    position: absolute;
+    color: black;
+    font-weight: 700;
+    transform: translate(61rem, 3rem);
+}
+
+.p-preco-total3 {
+    position: absolute;
+    color: black;
+    font-weight: 700;
+    transform: translate(55rem, 3rem);
+}
+
+.bnt-aceitar {
+    position: absolute;
+    width: 6rem;
+    height: 2rem;
+    margin-top: -0.11rem;
+    text-align: center;
+    top: 0;
+    border: none;
+    border-radius: 10px;
+    transform: translate(61rem, 2.5rem);
+    background-color: rgb(76, 236, 76);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    color: white;
+    font-weight: 700;
+}
+
+.bnt-comprovante {
+    position: absolute;
+    width: 10rem;
+    height: 2rem;
+    margin-top: -0.11rem;
+    text-align: center;
+    top: 0;
+    border: none;
+    border-radius: 10px;
+    transform: translate(50rem, 2.5rem);
+    background-color: #fba800;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    color: white;
+    font-weight: 700;
+}
+
+.bnt-remover {
+    position: absolute;
+    width: 8rem;
+    height: 2rem;
+    margin-top: -0.11rem;
+    text-align: center;
+    top: 0;
+    border: none;
+    border-radius: 10px;
+    transform: translate(40.9rem, 2.5rem);
+    background-color: #555;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    color: white;
+    font-weight: 700;
+}
+
+.bnt-remover-item {
+    position: absolute;
+    width: 10rem;
+    height: 2rem;
+    margin-top: -0.11rem;
+    text-align: center;
+    top: 0;
+    border: none;
+    border-radius: 10px;
+    transform: translate(30rem, 2.5rem);
+    background-color: #555;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    color: white;
+    font-weight: 700;
+}
+
+.texto-bnt {
+    transform: translateY(-0.5rem);
+}
+
+.bnt-aceitar:hover,
+.btn-mover:hover,
+.btn-mover1:hover {
+    background-color: rgb(55, 190, 55);
+}
+
+.pedidos-aceitos {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+    width: 40rem;
+    height: 47rem;
+    background-color: white;
+    transform: translateY(-11rem);
+    margin-left: 60rem;
+    margin-top: -2rem;
+    border-left: solid 5px #ffc400;
+}
+
+.img-perfil {
+    width: 3.5vw;
+    margin-left: 20rem;
+}
+
+.btn-adicionar {
+    position: absolute !important;
+    width: 10rem;
+    height: 3rem;
+    border-radius: 20px;
+    border: none;
+    background-color: #ffc400;
+    color: white;
+    font-weight: 700;
+    margin-left: 45rem;
+    margin-top: -6rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn-remover {
+    position: absolute;
+    width: 10rem;
+    height: 3rem;
+    border-radius: 20px;
+    border: none;
+    background-color: #ffc400;
+    color: white;
+    font-weight: 700;
+    margin-left: 32rem;
+    margin-top: -6rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn-adicionar:hover,
+.btn-remover:hover {
+    background-color: #fba900;
+}
+
+/*PARTE DE ADICIONAR PRATOS*/
+.container-adicionar-pratos {
+    display: none;
+    margin-top: -45rem;
+    border-radius: 40px;
+    margin-left: 16rem;
+    width: 79rem;
+    height: 44rem;
+    background-color: var(--branco);
+}
+
+.container-main {
+    background-color: #fff;
+    width: 90%;
+    max-width: 600px;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    margin-left: 20rem;
+}
+
+.texto-main {
+    color: #333;
+    margin-bottom: 1.5rem;
+    margin-left: -50rem;
+    font-size: 2.5rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #555;
+    margin-left: -1rem;
+}
+
+.categoria {
+    margin-left: -66rem;
+}
+
+.preco {
+    margin-left: -68rem;
+}
+
+.foto {
+    margin-left: -64rem;
+}
+
+.nome-prato {
+    margin-left: -63rem;
+}
+
+#preco,
+#nome-prato,
+#categoria,
+#foto {
+    width: 70rem;
+    margin-left: -19rem;
+    padding: 0.7rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+#preco:focus,
+#nome-prato:focus,
+#categoria:focus,
+#foto:focus {
+    border-color: #ff9900;
+    outline: none;
+}
+
+button {
+    padding: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #ff9900;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+}
+
+button:hover {
+    background-color: #e68a00;
+}
+
+
+/* PARTE DE REMOVER PRODUTOS  */
+.container-remover-pratos {
+    display: none;
+    margin-top: -45rem;
+    border-radius: 40px;
+    margin-left: 16rem;
+    width: 79rem;
+    height: 44rem;
+    background-color: var(--branco);
+}
+
+.container-pratos {
+    overflow: hidden;
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+}
+
+.h1-main {
+    font-size: 3rem;
+    transform: translateY(1rem);
+    margin-left: -37.7rem;
+}
+
+.pratos-list {
+    overflow-x: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: flex-start;
+    margin-top: 20rem;
+    transform: translateY(-19rem);
+    max-height: 38rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 73rem;
+    margin-left: 3rem;
+}
+
+.card-prato {
+    display: flex;
+    flex-direction: column;
+    width: 69rem;
+    height: 12rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    margin-left: 0.2rem;
+}
+
+.card-prato img {
+    position: absolute;
+    width: 9rem;
+    height: 6rem;
+    margin-top: -0.5rem;
+    border-radius: 20px;
+}
+
+
+.card-prato h2 {
+    font-size: 1.2em;
+    margin-top: 0.2rem;
+    margin-left: 10rem;
+}
+
+.card-prato p {
+    margin-left: 10rem;
+    color: #555;
+}
+
+.card-prato .preco {
+    font-weight: bold;
+    color: #fba900;
+    margin-left: 10rem;
+}
+
+.btn-remover {
+    position: absolute;
+    width: 10rem;
+    height: 3rem;
+    margin-left: 56rem;
+    margin-top: 1rem;
+    border-radius: 20px;
+    border: none;
+    background-color: #ef0808;
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.btn-remover:hover {
+    background-color: #d32f2f;
+}
+
+/* CONTAINER AVALIAÇÃO  */
+.container-avaliacao {
+    margin-top: -45rem;
+    border-radius: 40px;
+    margin-left: 16rem;
+    width: 79rem;
+    height: 44rem;
+    background-color: var(--branco);
+}
+
+.div-avaliacoes {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-width: 75rem;
+    max-height: 35rem;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    direction: rtl;
+    border-radius: 20px;
+    margin-left: 2rem;
+    margin-top: 3rem;
+    background-color: var(--cor-fundo);
+    padding-right: 2rem;
+}
+
+.div-avaliacoes::-webkit-scrollbar {
+    width: 10px;
+}
+
+.div-avaliacoes::-webkit-scrollbar-thumb {
+    background-color: #ff8800;
+    border-radius: 10px;
+}
+
+.div-avaliacoes::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.h1-parte-avaliacao {
+    margin-left: 15rem;
+    transform: translateY(2rem);
+    border-radius: 40px;
+    color: #555;
+    text-align: center;
+    font-weight: 800;
+    font-size: 3rem;
+    line-height: -10rem;
+}
+
+.texto-h1-parte-avalicao {
+    margin-left: -74rem;
+    transform: translateY(-2rem);
+    margin-top: -10rem;
+
+}
+.span-avaliacao{
+    font-size: 2rem;
+    margin-left: 1.7rem;
+    transform: translateY(-2rem) !important;
+}
+
+
+.avaliacao {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 20rem;
+    height: 14rem;
+    margin-left: 4rem;
+    transform: translateY(1rem);
+    background-color: var(--branco);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 1rem;
+}
+
+.nome-cliente {
+    color: var(--cor-de-variação);
+    font-weight: 800;
+    font-size: 1.5rem;
+    text-align: left;
+    margin-left: 1rem;
+}
+
+.comentario-cliente {
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-align: left;
+    margin-left: 1rem;
+}
+
+.div-estrelas {
+    display: flex;
+    gap: 5px;
+    margin-top: 0.1rem;
+    transform: translateX(-10rem);
+}
+
+.div-estrelas {
+    display: flex;
+}
+
+.div-estrelas svg {
+    width: 30px;
+    height: 30px;
+    margin-left: -0.5rem;
+    margin-top: 1rem;
+}
+
+.bi-star {
+    fill: #ffd700;
+}
+
+.bi-star[stroke] {
+    fill: none;
+    stroke: #ccc;
+}
+
+.filtro-avaliacao {
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    margin-top: -2.5rem;
+    border-radius: 20px;
+    margin-left: 65.5rem;
+    background-color: #555;
+    margin-top: -6rem;
+}
+.icone-filtro{
+    margin-left: 0.5rem;
+    margin-top: -0.1rem;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+.filtro-estrelas {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1rem;
+    color: white;
+    margin-left: -1rem;
+}
+.filtragem-mesas{
+    width: 4rem;
+    height: 4rem;
+    margin-top: -2.5rem;
+    border-radius: 20px;
+    margin-left: 65.5rem;
+    background-color: #ff8800;
+    transform: translateY(10rem);
+}
+.select-avaliacao {
+    width: 100%;
+    height: 50%;
+    border: none;
+    border-radius: 20px;
+    background-color: #ff8800;
+    color: white;
+}
+.filtragem-mesas {
+    align-items: center;
+    gap: 10px;
+}
+.filtro-avaliacao {
+    position: relative;
+}
+
+.icone-filtro {
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px;
+}
+
+.select-avaliacao {
+    display: none; 
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 5px;
+    z-index: 10;
+}
+
+
+.icone-mesas {
+    display: flex;
+    gap: 5px;
+}
+
+.botao-mesa {
+    padding: 5px 10px;
+    background-color: #ff7b00;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 0.1rem;
+    margin-left: 0.3rem;
+    border-radius: 20px;
+}
+
+.botao-mesa:hover {
+    background-color: #ff7b00;
+}
+
+.itens-mesa {
+    display: none;  
+    margin-top: 10px;
+}
+#mesaSelect{
+    width: 7rem;
+    height: 2rem;
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+    border: none;
+}
