@@ -196,6 +196,191 @@ main {
     gap: 14px;
 }
 
+/* Configurações para a navegação aberta */
+
+#open_btn,
+.container-pratos-list,
+.radio-input,
+.pedidos,
+.p-horas,
+.p-mesas,
+.p-preco-total,
+.bnt-aceitar,
+.img-banner,
+.scrollbar,
+.bnt-comprovante,
+.bnt-remover,
+.bnt-remover-item,
+.container-adicionar-pratos,
+.container-remover-pratos,
+.container-avaliacao,
+.div-avaliacoes,
+.filtro-avaliacao,
+.texto-h1-parte-avalicao {
+    transition: all 0.3s ease;
+}
+#filtro-estrelas{
+    height: 3rem;
+    border: none;
+    width: 10rem;
+    color: black;
+    margin-left: 5rem;
+    margin-top: -3.5rem;
+    background-color: white;
+    display: block;
+}
+/* Estilos específicos para cada elemento quando nav-open está ativo */
+.container-pratos-list.nav-open,
+.container-adicionar-pratos.nav-open,
+.container-remover-pratos.nav-open,
+.container-avaliacao.nav-open {
+    margin-top: -45rem;
+    border-radius: 40px;
+    margin-left: 7rem;
+    width: 89rem;
+    height: 44rem;
+    background-color: var(--branco);
+}
+
+.radio-inputs.nav-open {
+    position: relative;
+    transform: translateY(16rem);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    border-radius: 0.5rem;
+    background-color: #EEE;
+    box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+    padding: 0.25rem;
+    width: 82rem;
+    font-size: 14px;
+    margin-left: 3rem;
+    z-index: 10;
+}
+
+.div-avaliacoes.nav-open {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-width: 79rem;
+    max-height: 35rem;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    direction: rtl;
+    border-radius: 20px;
+    margin-left: 5rem;
+    margin-top: 3rem;
+    background-color: var(--cor-fundo);
+    padding-right: 2rem;
+}
+.texto-h1-parte-avalicao.nav-open{
+    margin-left: -75rem;
+    transform: translateY(-2rem);
+    margin-top: -10rem;
+}
+.filtro-avaliacao.nav-open{
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    margin-top: -2.5rem;
+    border-radius: 20px;
+    margin-left: 65rem;
+    background-color: #555;
+    margin-top: -5rem;
+}
+.pedido.nav-open{
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 20rem;
+    height: 14rem;
+    margin-left: 5.1rem;
+    transform: translateY(1rem);
+    background-color: var(--branco);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 1rem;
+
+}
+.pedidos.nav-open {
+    border: solid 2px var(--cor-de-variação);
+    border-radius: 1.3rem;
+    width: 81.5rem;
+    height: 5rem;
+    transform: translate(9rem, 0rem);
+    margin-top: 1rem;
+}
+
+.container.nav-open {
+    width: 100rem !important;
+}
+
+.bnt-comprovante.nav-open {
+    margin-left: 10rem;
+}
+
+.bnt-remover.nav-open {
+    margin-left: 3rem;
+}
+
+.p-horas.nav-open {
+    display: none;
+    border: solid 2px var(--cor-de-variação);
+    border-radius: 1.3rem;
+    width: 79.5rem;
+    height: 5rem;
+    transform: translate(9rem, 0rem);
+    margin-top: 1rem;
+}
+
+.p-mesas.nav-open {
+    color: #555;
+    position: absolute;
+    font-weight: 600;
+    transform: translate(1.4rem, 1.5rem);
+}
+
+.p-preco-total.nav-open {
+    position: absolute;
+    color: black;
+    font-weight: 700;
+    transform: translate(47rem, 3rem);
+}   
+
+.bnt-aceitar.nav-open {
+    position: absolute;
+    width: 6rem;
+    height: 2rem;
+    top: 0;
+    border: none;
+    border-radius: 10px;
+    transform: translate(61rem, 2.5rem);
+    background-color: rgb(76, 236, 76);
+    cursor: pointer;
+    color: white;
+    font-weight: 700;
+    margin-left: 12rem;
+    transition: background-color 0.3s ease;
+}
+
+.img-banner.nav-open {
+    width: 50rem;
+    margin-top: -0.1rem;
+    margin-left: 2rem;
+}
+
+.scrollbar.nav-open {
+    z-index: 5;
+    position: absolute;
+    left: 9rem;
+    top: 7rem;
+    transform: translateY(15rem);
+    bottom: 0;
+    width: 12px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    height: 50%;
+}
 
 /*============= PARTE DO CONTAINER LISTA DE PRATOS ============*/
 .container-pratos-list {
@@ -295,103 +480,113 @@ main {
 .receipt {
     display: none;
     position: absolute;
-    z-index: 10;
-    width: 450px;
+    z-index: 20;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 30px;
     background-color: #fff;
-    padding: 100px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
     text-align: center;
-    margin-left: 30rem;
-}
-.preco-prato{
-    position: absolute;
-    margin-left: 10rem;
-}
-
-.qtd-prato{
-    position: absolute;
-    margin-left: 18rem;
-}
-.preco-total-prato{
-    position: absolute;
-    transform: translateX(22rem);
-}
-.btn-gerar {
-    display: none;
-    width: 15rem;
-    position: absolute;
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transform: translate(-7.5rem, 1rem);
-    z-index: 21;
+    position: relative;
 }
 
 .logo img {
-    max-width: 80%;
-    transform: translateY(-3rem);
-}
-
-.order-info {
-    text-align: left;
-    margin-top: -6rem;
-    margin-left: -5rem;
+    max-width: 100px;
+    margin-bottom: 20px;
 }
 
 .order-info h3 {
-    margin: 0;
-    font-size: 18px;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
-    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #333;
 }
 
-.table-number {
-    font-size: 16px;
-    color: #333;
-    font-weight: bold;
-    text-align: left;
-    margin-top: 10px;
+.info-pedido {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: #555;
 }
 
-.payment-method {
-    font-size: 16px;
-    color: #333;
-    font-weight: bold;
-    text-align: left;
-    margin-top: 10px;
+.paragrafo-parte-comprovante {
+    width: 45%;
+    word-wrap: break-word;
 }
 
 .order-item {
     display: flex;
-    justify-content: space-between;
-    padding: 8px 0;
-    border-bottom: 1px dashed #ddd;
-    font-size: 14px;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
 }
 
-.order-total {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 15px;
-    font-weight: bold;
-    font-size: 16px;
+.item {
+    padding: 10px;
+    background-color: #556;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
 }
 
 .footer-text {
-    font-size: 12px;
-    color: #666;
+    font-size: 14px;
+    color: #888;
+    margin-top: 30px;
+}
+
+#btn-gerar {
     margin-top: 20px;
 }
+
+.btn-gerar {
+    width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-gerar:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .receipt {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .info-pedido {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .paragrafo-parte-comprovante {
+        width: 100%;
+    }
+
+    .order-item {
+        margin-top: 15px;
+    }
+
+    .footer-text {
+        margin-top: 20px;
+    }
+}
+
 .img {
+    position: absolute;
     width: 10rem;
+    margin-left: -5rem;
+    margin-top: -3.5rem;
 }
 
 .btn-gerar:hover {
@@ -609,7 +804,7 @@ main {
     position: absolute;
     color: black;
     font-weight: 700;
-    transform: translate(23rem, 3rem);
+    transform: translate(35rem, 3rem);
 }
 
 .p-preco-total2 {
@@ -669,7 +864,7 @@ main {
     top: 0;
     border: none;
     border-radius: 10px;
-    transform: translate(40.9rem, 2.5rem);
+    transform: translate(52rem, 2.5rem);
     background-color: #555;
     transition: background-color 0.3s ease;
     cursor: pointer;
@@ -686,7 +881,7 @@ main {
     top: 0;
     border: none;
     border-radius: 10px;
-    transform: translate(30rem, 2.5rem);
+    transform: translate(41rem, 2.5rem);
     background-color: #555;
     transition: background-color 0.3s ease;
     cursor: pointer;
@@ -998,24 +1193,25 @@ button:hover {
 
 .h1-parte-avaliacao {
     margin-left: 15rem;
-    transform: translateY(2rem);
+    transform: translateY(3rem);
     border-radius: 40px;
     color: #555;
     text-align: center;
-    font-weight: 800;
+    font-weight: 800;   
     font-size: 3rem;
     line-height: -10rem;
 }
 
 .texto-h1-parte-avalicao {
-    margin-left: -74rem;
+    margin-left: -64rem;
     transform: translateY(-2rem);
     margin-top: -10rem;
 
 }
-.span-avaliacao{
+
+.span-avaliacao {
     font-size: 2rem;
-    margin-left: 1.7rem;
+    margin-left: 6.7rem;
     transform: translateY(-2rem) !important;
 }
 
@@ -1080,17 +1276,19 @@ button:hover {
     height: 4rem;
     margin-top: -2.5rem;
     border-radius: 20px;
-    margin-left: 65.5rem;
+    margin-left: 57rem;
     background-color: #555;
     margin-top: -6rem;
 }
-.icone-filtro{
+
+.icone-filtro {
     margin-left: 0.5rem;
     margin-top: -0.1rem;
     font-size: 2rem;
     color: white;
     cursor: pointer;
 }
+
 .filtro-estrelas {
     display: flex;
     flex-direction: column;
@@ -1100,7 +1298,8 @@ button:hover {
     color: white;
     margin-left: -1rem;
 }
-.filtragem-mesas{
+
+.filtragem-mesas {
     width: 4rem;
     height: 4rem;
     margin-top: -2.5rem;
@@ -1109,18 +1308,21 @@ button:hover {
     background-color: #ff8800;
     transform: translateY(10rem);
 }
+
 .select-avaliacao {
-    width: 100%;
-    height: 50%;
+    width: 4rem;
+    height: 4rem;
     border: none;
     border-radius: 20px;
     background-color: #ff8800;
     color: white;
 }
+
 .filtragem-mesas {
     align-items: center;
     gap: 10px;
 }
+
 .filtro-avaliacao {
     position: relative;
 }
@@ -1132,7 +1334,7 @@ button:hover {
 }
 
 .select-avaliacao {
-    display: none; 
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
@@ -1165,10 +1367,11 @@ button:hover {
 }
 
 .itens-mesa {
-    display: none;  
+    display: none;
     margin-top: 10px;
 }
-#mesaSelect{
+
+#mesaSelect {
     width: 7rem;
     height: 2rem;
     margin-top: 0.5rem;

@@ -1,5 +1,4 @@
     @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Sansita:wght@900&display=swap');
 
 
 
@@ -24,6 +23,9 @@
         align-items: center;
         flex-direction: column;
         font-family: Arial, sans-serif;
+    }
+    body{
+        height: 100%;
     }
 
     #loading-screen h1 {
@@ -108,7 +110,37 @@
         font-size: 0.8rem;
     }
     .btn-login{
-        width: 5rem;
+        cursor: pointer;
+        width: 20rem;
+        height: 3rem;
+        font-size: large;
+        transform: translateY(-33rem);
+        margin-left: -43rem;
+        border-radius: 20px 0;
+        border: none;
+        background-color: #ff9900;
+        color: white;
+        font-weight: 700;
+        font-size: 1.5rem;
+        box-shadow: 
+    0 0 10px rgba(255, 153, 0, 0.3),
+    0 0 20px rgba(255, 153, 0, 0.3),
+    0 0 30px rgba(255, 153, 0, 0.3),
+    0 0 40px rgba(255, 153, 0, 0.3),
+    0 0 50px rgba(255, 153, 0, 0.3),
+    0 0 60px rgba(255, 153, 0, 0.3);
+      border-radius: 20px 0px;
+    }
+    .btn-logar{
+        width: 7rem;
+        height: 2rem;
+        border: none;
+        border-radius: 20px;
+        background-color: #ffb800;
+    }
+    .a-logar{
+        color: white;
+        font-weight: 700;
     }
     header ul li a:hover::after {
         width: 100%;
@@ -150,21 +182,29 @@
 
     /*============================================================================== ESTILIZAÇÃO CONTAINER PRINCIPAL ======================================================================== */
     .imagem-fundo {
-        position: relative;
-        width: 1250px;
+        width: 1500px;
+        margin-left: 3rem;
         transform: translateX(-50rem);
-        margin-top: 39.4rem;
+        margin-top: 35.4rem;
         z-index: 0;
     }
 
+    .imagem-ficticio{
+        position: absolute;
+        width: 30rem;
+        margin-top: -43rem;
+        margin-left: -10rem;
+    }
 
+
+    
     .textos-principais {
         display: flex;
         flex-direction: column;
         position: relative;
         z-index: 1;
         color: black;
-        transform: translate(-25.5rem, -33rem);
+        transform: translate(-29rem, -37rem);
         animation: entrada 1s ease-out 0.2s forwards;
     }
 
@@ -172,6 +212,7 @@
         position: relative;
         font-size: 20px;
         color: black;
+        right: 18rem;
         z-index: 1;
         margin-bottom: 5px;
         transform: translateX(4.5rem);
@@ -182,11 +223,11 @@
     }
 
     .h1-principal {
-        font-size: 2.5rem;
         white-space: nowrap;
-        font-weight: 400;
+        font-size: 2rem;
+        font-weight: 620;   
         margin-bottom: 20px;
-        transform: translateX(1.5rem);
+        transform: translateX(-13.5rem);
     }
     .a-parte-principal{
         color:black;
@@ -204,11 +245,12 @@
     .texto-informativo {
         position: relative;
         font-size: 18px;
-        margin-top: 65px;
+        margin-top: -10px;
         white-space: nowrap;
         z-index: 1;
-        transform: translateX(1rem);
-        text-align: center;
+        transform: translateX(-13rem);
+        text-align: left;
+
 
     }
 
@@ -229,7 +271,7 @@
         rotate: 90deg;
         margin-left: -750px;
         animation: flutu 7s ease infinite;
-        margin-top: 2rem;
+        margin-top: -4rem;
         cursor: pointer;
         color: black;
     }
@@ -240,12 +282,7 @@
         color: black;
     }
 
-    .icone-insta {
-        font-size: 1.4rem;
-        font-weight: 800;
-        transform: translate(-40.9rem, -38.3rem);
-    }
-
+    
     .textos-principais p,
     .textos-principais h1 {
         animation: textoSuave 2s ease-in-out;
@@ -337,7 +374,7 @@
         height: 55vh;
         display: flex;
         background-color: white;
-        margin-top: -381px;
+        margin-top: -301px;
         margin-left: -30px;
         }
 
