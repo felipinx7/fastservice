@@ -24,7 +24,6 @@ body {
 /* PARTE DO FUNDO  */
 .img-fundo {
     width: 70rem;
-    margin-top: -1rem;
     margin-left: -10rem;
 }
 
@@ -33,9 +32,9 @@ body {
 .container {
     position: absolute;
     width: 50rem;
-    height: 46.3rem;
+    height: 48rem;
     background-color: var(--branco);
-    margin-top: -46rem;
+    margin-top: -48rem;
     margin-left: 50rem;
     border-radius: 90px;
 }

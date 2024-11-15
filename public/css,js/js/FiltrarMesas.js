@@ -17,7 +17,7 @@ mesaSelect.addEventListener('change', function() {
         const mesaValor = pedido.querySelector('.p-mesas').textContent.trim().split(' ')[1]; // Pegando o número da mesa (M2, M3, etc.)
 
         // Verifica se o valor da mesa corresponde ao selecionado no select
-        if (selectedMesa === "0" || mesaValor === selectedMesa) {
+        if (selectedMesa === "M0" || mesaValor === selectedMesa) {
             pedido.style.display = 'block';  // Exibe o card de pedido
         } else {
             pedido.style.display = 'none';  // Oculta o card de pedido

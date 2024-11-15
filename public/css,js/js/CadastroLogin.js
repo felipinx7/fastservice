@@ -41,7 +41,8 @@ document.getElementById("btnCadastrar").addEventListener("click", function(event
     mensagemErro.style.display = "none";
 
     // Redireciona para a página de login
-    window.location.href = "/";
+
+    window.location.href = "/views/login.html";
 });
 
 // Funcionalidade para alternar a visibilidade da senha

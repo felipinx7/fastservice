@@ -1,4 +1,5 @@
 document.getElementById("open_btn").addEventListener("click", function() {
+    // Alterna a classe nav-open para cada um dos elementos principais
     document.getElementById("open_btn").classList.toggle("nav-open");
     document.querySelector(".container-pratos-list")?.classList.toggle("nav-open");
     document.querySelector(".radio-inputs")?.classList.toggle("nav-open");
@@ -6,8 +7,12 @@ document.getElementById("open_btn").addEventListener("click", function() {
     document.querySelector(".scrollbar")?.classList.toggle("nav-open");
     document.querySelector(".container")?.classList.toggle("nav-open");
     document.querySelector(".bnt-comprovante")?.classList.toggle("nav-open");
-    document.querySelector(".bnt-remover")?.classList.toggle("nav-open");
-    document.querySelector(".bnt-remover-item")?.classList.toggle("nav-open");
+
+    // Usando querySelectorAll para alternar classe em múltiplos elementos
+    document.querySelectorAll(".remover").forEach(element => element.classList.toggle("nav-open"));
+    document.querySelectorAll(".bnt-remover").forEach(element => element.classList.toggle("nav-open"));
+    document.querySelectorAll(".bnt-remover-item").forEach(element => element.classList.toggle("nav-open"));
+
     document.querySelector(".container-adicionar-pratos")?.classList.toggle("nav-open");
     document.querySelector(".container-remover-pratos")?.classList.toggle("nav-open");
     document.querySelector(".container-avaliacao")?.classList.toggle("nav-open");
@@ -17,6 +22,8 @@ document.getElementById("open_btn").addEventListener("click", function() {
     document.querySelector(".filtro-avaliacao")?.classList.toggle("nav-open");
     document.querySelector(".pedido")?.classList.toggle("nav-open");
 
+    // Alterna a classe nav-open para todos os elementos com a classe "item"
+    document.querySelectorAll(".item").forEach(element => element.classList.toggle("nav-open"));
 
     // Seleciona todos os elementos especificados e alterna a classe "nav-open" em cada um
     const elementosPedidos = document.querySelectorAll(
