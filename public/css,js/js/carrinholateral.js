@@ -17,7 +17,12 @@ const bntRemoverItem = document.querySelectorAll('.bnt-remover-item');
 });
 
 // Função para abrir o carrinho
-pendentes.addEventListener('click', function() {
+pendentes.addEventListener('click', function(event) {
+    // Impede que o carrinho seja aberto ao clicar dentro de outros elementos
+    if (event.target.closest('.bnt-aceitar, .bnt-remover, .bnt-remover-item')) {
+        return; // Impede a propagação do clique, se for no botão
+    }
+
     // Adiciona a classe 'comprovante-active' ao #pendentes
     pendentes.classList.toggle('comprovante-active');
 

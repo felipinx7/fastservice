@@ -105,7 +105,7 @@
                 <button id="toggleSelectBtn" class="botao-mesa">
                     <i class="bi bi-sliders2-vertical"></i>
                 </button>
-        
+
                 <!-- O Select que será mostrado ao clicar no botão -->
                 <select id="mesaSelect" style="display:none;">
                     <option value="M0">Todas as Mesas</option>
@@ -117,184 +117,154 @@
                 </select>
             </div>
         </div>
-        
+
         <!-- PARTE DO COMPROVANTE  -->
+        <div class="receipt" id="comprovante">
+            <div class="logo">
+                <img src="/public/css,js/img/fast-service.png" class="img" alt="Logo Fast Service">
+            </div>
+
+            <!-- Informações do Pedido -->
+            <div class="order-info">
+                <h3>Comprovante de Pedido</h3>
+
+                <!-- Número da mesa -->
+                <div class="table-number">
+                    Mesa: <span id="numeroMesa">12</span> <!-- Aqui você pode alterar o número da mesa -->
+                </div>
+
+                <!-- Método de pagamento -->
+                <div class="payment-method">
+                    Método de pagamento: <span id="metodoPagamento">Cartão de Crédito</span>
+                </div>
+
+                <!-- Cabeçalho dos itens -->
+                <div class="order-item">
+                    <span>Nome do Pedido</span>
+                    <span>Quantidade</span>
+                    <span>Preço</span>
+                </div>
+
+                <!-- Itens do Pedido -->
 
 
-
+            </div>
+            <!-- Total -->
+            <div class="order-total">
+                <span>Total</span>
+                <span>R$ 55,00</span>
+            </div>
+            <!-- Texto no rodapé -->
+            <div class="footer-text">
+                Obrigado pela preferência!
+            </div>
+        </div>
 
         <!-- PARTE DO CARRINHO -->
-         <div class="container-carrinho">
+        <div class="container-carrinho" id="comprovanteArea">
             <div class="icone-fechar">
                 <i class="bi bi-x thick-x-icon"></i>
             </div>
             <h1 class="h1-parte-carrinho">Comprovante</h1>
+            <label for="mesa" class="label-mesa">Mesa: </label>
+            <input type="number" placeholder="MESA..." class="input-mesa">
             <div class="pedidos-carrinho">
                 <div class="item-carrinho">
                     <div class="img-carrinho">
-                        <img src="/public/css,js/img/prato-2.png"class="img-prato"alt="">
+                        <img src="/public/css,js/img/prato-2.png" class="img-prato" alt="">
                     </div>
-                    <h4 class="h4-carrinho">
-                        Nome do Prato
-                    </h4>
-                    <h4 class="h4-preco-carrinho">R$00,00</h4>
+                    <h4 class="h4-carrinho">Bife à Cavalo</h4>
+                    <h4 class="h4-preco-carrinho">R$35,00</h4>
                     <h4 class="h4-qtd-carrinho">Quantidade: 4</h4>
                     <h4 class="h4-mesa-carrinho">M4</h4>
                     <h4 class="h4-metodo-pagamento-carrinho">Pix</h4>
                 </div>
                 <div class="item-carrinho">
                     <div class="img-carrinho">
-                        <img src="/public/css,js/img/prato-2.png"class="img-prato"alt="">
+                        <img src="/public/css,js/img/prato-2.png" class="img-prato" alt="">
                     </div>
-                    <h4 class="h4-carrinho">
-                        Nome do Prato
-                    </h4>
-                    <h4 class="h4-preco-carrinho">R$00,00</h4>
+                    <h4 class="h4-carrinho">Bife à Acebolado</h4>
+                    <h4 class="h4-preco-carrinho">R$32,00</h4>
                     <h4 class="h4-qtd-carrinho">Quantidade: 4</h4>
-                    <h4 class="h4-mesa-carrinho">M4</h4>
+                    <h4 class="h4-mesa-carrinho">M2</h4>
                     <h4 class="h4-metodo-pagamento-carrinho">Pix</h4>
-
                 </div>
                 <div class="item-carrinho">
                     <div class="img-carrinho">
-                        <img src="/public/css,js/img/prato-2.png"class="img-prato"alt="">
+                        <img src="/public/css,js/img/prato-2.png" class="img-prato" alt="">
                     </div>
-                    <h4 class="h4-carrinho">
-                        Nome do Prato
-                    </h4>
-                    <h4 class="h4-preco-carrinho">R$00,00</h4>
+                    <h4 class="h4-carrinho">Bife à Cavalo</h4>
+                    <h4 class="h4-preco-carrinho">R$32,00</h4>
                     <h4 class="h4-qtd-carrinho">Quantidade: 4</h4>
                     <h4 class="h4-mesa-carrinho">M4</h4>
                     <h4 class="h4-metodo-pagamento-carrinho">Pix</h4>
-
                 </div>
                 <div class="item-carrinho">
                     <div class="img-carrinho">
-                        <img src="/public/css,js/img/prato-2.png"class="img-prato"alt="">
+                        <img src="/public/css,js/img/prato-2.png" class="img-prato" alt="">
                     </div>
-                    <h4 class="h4-carrinho">
-                        Nome do Prato
-                    </h4>
-                    <h4 class="h4-preco-carrinho">R$00,00</h4>
+                    <h4 class="h4-carrinho">Bife à Cavalo</h4>
+                    <h4 class="h4-preco-carrinho">R$32,00</h4>
                     <h4 class="h4-qtd-carrinho">Quantidade: 4</h4>
                     <h4 class="h4-mesa-carrinho">M4</h4>
                     <h4 class="h4-metodo-pagamento-carrinho">Pix</h4>
-
                 </div>
                 <div class="item-carrinho">
                     <div class="img-carrinho">
-                        <img src="/public/css,js/img/prato-2.png"class="img-prato"alt="">
+                        <img src="/public/css,js/img/prato-2.png" class="img-prato" alt="">
                     </div>
-                    <h4 class="h4-carrinho">
-                        Nome do Prato
-                    </h4>
-                    <h4 class="h4-preco-carrinho">R$00,00</h4>
+                    <h4 class="h4-carrinho">Bife à Cavalo</h4>
+                    <h4 class="h4-preco-carrinho">R$32,00</h4>
                     <h4 class="h4-qtd-carrinho">Quantidade: 4</h4>
                     <h4 class="h4-mesa-carrinho">M4</h4>
                     <h4 class="h4-metodo-pagamento-carrinho">Pix</h4>
-
                 </div>
                 <div class="item-carrinho">
                     <div class="img-carrinho">
-                        <img src="/public/css,js/img/prato-2.png"class="img-prato"alt="">
+                        <img src="/public/css,js/img/prato-2.png" class="img-prato" alt="">
                     </div>
-                    <h4 class="h4-carrinho">
-                        Nome do Prato
-                    </h4>
-                    <h4 class="h4-preco-carrinho">R$00,00</h4>
+                    <h4 class="h4-carrinho">Bife à Cavalo</h4>
+                    <h4 class="h4-preco-carrinho">R$32,00</h4>
                     <h4 class="h4-qtd-carrinho">Quantidade: 4</h4>
                     <h4 class="h4-mesa-carrinho">M4</h4>
                     <h4 class="h4-metodo-pagamento-carrinho">Pix</h4>
-
                 </div>
                 <div class="item-carrinho">
                     <div class="img-carrinho">
-                        <img src="/public/css,js/img/prato-2.png"class="img-prato"alt="">
+                        <img src="/public/css,js/img/prato-2.png" class="img-prato" alt="">
                     </div>
-                    <h4 class="h4-carrinho">
-                        Nome do Prato
-                    </h4>
-                    <h4 class="h4-preco-carrinho">R$00,00</h4>
+                    <h4 class="h4-carrinho">Bife à Cavalo</h4>
+                    <h4 class="h4-preco-carrinho">R$32,00</h4>
                     <h4 class="h4-qtd-carrinho">Quantidade: 4</h4>
                     <h4 class="h4-mesa-carrinho">M4</h4>
                     <h4 class="h4-metodo-pagamento-carrinho">Pix</h4>
-
-                </div>
-
-                <div class="item-carrinho">
-                    <div class="img-carrinho">
-                        <img src="/public/css,js/img/prato-2.png"class="img-prato"alt="">
-                    </div>
-                    <h4 class="h4-carrinho">
-                        Nome do Prato
-                    </h4>
-                    <h4 class="h4-preco-carrinho">R$00,00</h4>
-                    <h4 class="h4-qtd-carrinho">Quantidade: 4</h4>
-                    <h4 class="h4-mesa-carrinho">M4</h4>
-                    <h4 class="h4-metodo-pagamento-carrinho">Pix</h4>
-                    
-                </div> <div class="item-carrinho">
-                    <div class="img-carrinho">
-                        <img src="/public/css,js/img/prato-2.png"class="img-prato"alt="">
-                    </div>
-                    <h4 class="h4-carrinho">
-                        Nome do Prato
-                    </h4>
-                    <h4 class="h4-preco-carrinho">R$00,00</h4>
-                    <h4 class="h4-qtd-carrinho">Quantidade: 4</h4>
-                    <h4 class="h4-mesa-carrinho">M4</h4>
-                    <h4 class="h4-metodo-pagamento-carrinho">Pix</h4>
-
                 </div>
                 <div class="item-carrinho">
                     <div class="img-carrinho">
-                        <img src="/public/css,js/img/prato-2.png"class="img-prato"alt="">
+                        <img src="/public/css,js/img/prato-2.png" class="img-prato" alt="">
                     </div>
-                    <h4 class="h4-carrinho">
-                        Nome do Prato
-                    </h4>
-                    <h4 class="h4-preco-carrinho">R$00,00</h4>
+                    <h4 class="h4-carrinho">Bife à Cavalo</h4>
+                    <h4 class="h4-preco-carrinho">R$32,00</h4>
                     <h4 class="h4-qtd-carrinho">Quantidade: 4</h4>
                     <h4 class="h4-mesa-carrinho">M4</h4>
                     <h4 class="h4-metodo-pagamento-carrinho">Pix</h4>
+                </div>
 
-                </div>
-                <div class="item-carrinho">
-                    <div class="img-carrinho">
-                        <img src="/public/css,js/img/prato-2.png"class="img-prato"alt="">
-                    </div>
-                    <h4 class="h4-carrinho">
-                        Nome do Prato
-                    </h4>
-                    <h4 class="h4-preco-carrinho">R$00,00</h4>
-                    <h4 class="h4-qtd-carrinho">Quantidade: 4</h4>
-                    <h4 class="h4-mesa-carrinho">M4</h4>
-                    <h4 class="h4-metodo-pagamento-carrinho">Pix</h4>
-
-                </div>
-                <div class="item-carrinho">
-                    <div class="img-carrinho">
-                        <img src="/public/css,js/img/prato-2.png"class="img-prato"alt="">
-                    </div>
-                    <h4 class="h4-carrinho">
-                        Nome do Prato
-                    </h4>
-                    <h4 class="h4-preco-carrinho">R$00,00</h4>
-                    <h4 class="h4-qtd-carrinho">Quantidade: 4</h4>
-                    <h4 class="h4-mesa-carrinho">M4</h4>
-                    <h4 class="h4-metodo-pagamento-carrinho">Pix</h4>
- 
-                </div>
             </div>
-            <button class="btn-carrinho">Gerar Comprovante</button>
-         </div>
+            <div class="cart-summary">
+                <p>Sub Total <span class="preçototall">R$00,0</span></p>
+                <p>Desconto <span>-R$00,0</span></p>
+                <p class="total">Valor Total <span class="totaltudo">R$00,0</span></p>
+            </div>
+            <button class="btn-carrinho gerar" onclick="gerarComprovante()">Gerar Comprovante</button>
+        </div>
 
         <div class="div-pedidos">
             <div class="banner-dashboar">
                 <img src="/public/css,js/img/banner-dasckboard.png" class="img-banner" alt="">
             </div>
             <div class="container" id="pendentes">
-                <div class="pedidos">
+                <!-- <div class="pedidos">
                     <h1 class="h1-blaconista h1">Método pagamento: Pix</h1>
                     <p class="p-horas">00:00 PM</p>
                     <p class="p-mesas">Mesa: M2</p>
@@ -437,7 +407,7 @@
                     <button class="bnt-remover-item item">
                         <div class="texto-bnt">Remover Item</div>
                     </button>
-                </div>
+                </div> -->
 
             </div>
             <div class="div-pedidos2">
@@ -504,7 +474,7 @@
         <span class="span-avaliacao">dos Clientes</span>
         <div class="filtro-avaliacao">
             <div class="icone-filtro">
-            <i class="bi bi-sliders2-vertical"></i>
+                <i class="bi bi-sliders2-vertical"></i>
             </div>
             <div class="select-star" style="display: none;">
                 <select id="filtro-estrelas">
@@ -524,15 +494,19 @@
     <script src="/public/css,js/js/carrinholateral.js"></script>
     <script src="/public/css,js/js/FiltrarMesas.js"></script>
     <script src="/public/css,js/js/NavActive.js"></script>
+    <script src="/public/css,js/js/FiltrarPedidos.js"></script>
     <script src="/public/css,js/js/FiltrarEstrelas.js"></script>
     <script src="/public/css,js/js/controleAvaliacoes.js"></script>
+    <script src="/public/css,js/js/criarEstruturaPedidos.js"></script>
     <script src="/public/css,js/js/navigation.js"></script>
     <script src="/public/css,js/js/SairSistema.js"></script>
     <script src="/public/css,js/js/pratoscadastrados.js"></script>
     <script src="/public/css,js/js/balconsita.js"></script>
     <script src="/public/css,js/js/mostrarInputs.js"></script>
     <script src="/public/css,js/js/scroll-bar.js"></script>
+    <script src="/public/css,js/js/Comprovante.js"></script>
     <script src="/public/css,js/js/ControllNav.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 </body>
 
 </html>
