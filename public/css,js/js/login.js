@@ -24,7 +24,7 @@ document.getElementById("btnLogin").addEventListener("click", function(event) {
 
     // Validação da senha: Verifica se a senha tem no máximo 8 caracteres
     if (senha.length > 8) {
-        mensagemErro.textContent = "A senha deve ter no minímo 8 caracteres.";
+        mensagemErro.textContent = "A senha deve ter no máximo 8 caracteres.";
         mensagemErro.style.display = "block";
         return;
     }
@@ -35,6 +35,7 @@ document.getElementById("btnLogin").addEventListener("click", function(event) {
 
     // Redireciona para a página de acesso
     window.location.href = "balconista.html";
+    window.location.href = "/ADM";
 });
 
 // Função para alternar a visibilidade da senha
