@@ -34,8 +34,7 @@ document.getElementById("btnLogin").addEventListener("click", function(event) {
     alert("Login realizado com sucesso!");
 
     // Redireciona para a página de acesso
-    window.location.href = "balconista.html";
-    window.location.href = "/ADM";
+    window.location.href = "/balconista";
 });
 
 // Função para alternar a visibilidade da senha

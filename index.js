@@ -19,14 +19,14 @@ app.set('views', './views');
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
-app.get('/', function(req, res){
+app.get('/login', function(req, res){
     res.render('login')
 })
 app.get('/cadastrar', function(req, res){
     res.render('cadastrar')
 })
 
-app.get('/ADM', function(req, res){
+app.get('/balconista', function(req, res){
     res.render('balconista')
 })
 app.get('/fast-service', function(req, res){
