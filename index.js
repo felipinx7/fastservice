@@ -6,10 +6,24 @@ const pathConfig = require('./config/path.config');
 const app = express();
 const pedidos = require('./models/pedidos');
 const Balconista = require('./models/balconista');
+const Cardapio = require('./models/cardapio')
 const bcrypt = require('bcryptjs');
+const multer = require('multer');
+const path = require('path');
 
 
+// Configuração do multer para upload de imagens
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, path.join(__dirname, 'public/css,js/uploads'));
+    },
+    filename: (req, file, cb) => {
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
+        cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
+    }
+});
 
+const upload = multer({ storage });
 
 // Middleware
 app.use('/public', express.static(pathConfig.publicPath));
@@ -23,9 +37,57 @@ app.set('view engine', 'hbs');
 app.set('views', './views');
 
 // Rota de cadastro
-app.get('/cadastrar', function (req, res) {
-    res.render('cadastrar');
+app.get('/cadastrar-prato', function (req, res) {
+    res.render('balconista');
 });
+app.get("/cardapio", function(req, res){
+    res.render("balconista")
+})
+app.post('/cadastrar-prato', upload.single('foto'), async (req, res) => {
+    try {
+        const { nome, categoria, preco } = req.body;
+        const foto = req.file ? req.file.filename : null;  
+
+        // Cria o novo prato no banco de dados
+        const pratoNovo = await Cardapio.create({ nome, categoria, preco, foto });
+
+        res.redirect('/cardapio');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Erro ao cadastrar o prato');
+    }
+});
+
+// Rota para buscar os pratos do cardápio
+app.get('/pratos-cadastrados', async (req, res) => {
+    try {
+        const pratos = await Cardapio.findAll();
+        res.json(pratos);
+    } catch (error) {
+        console.error("Erro ao buscar pratos:", error);
+        res.status(500).json({ erro: 'Erro ao buscar pratos do cardápio' });
+    }
+});
+// Rota para remover um prato pelo nome
+app.delete('/remover-prato', async (req, res) => {
+    const { nome } = req.body; // Espera o nome do prato no corpo da requisição
+
+    try {
+        // Encontre e remova o prato com o nome fornecido
+        const prato = await Cardapio.findOne({ where: { nome } });
+
+        if (!prato) {
+            return res.status(404).json({ erro: 'Prato não encontrado' });
+        }
+
+        await prato.destroy(); // Remove o prato do banco de dados
+        res.status(200).json({ sucesso: 'Prato removido com sucesso' });
+    } catch (error) {
+        console.error('Erro ao remover prato:', error);
+        res.status(500).json({ erro: 'Erro ao remover prato' });
+    }
+});
+
 
 // Cadastro de balconista
 
@@ -87,7 +149,6 @@ app.post('/login', async function (req, res) {
         // Login bem-sucedido
         res.json({ sucesso: 'Login realizado com sucesso!' });
         // res.redirect('/dashboard');  // Aqui você pode redirecionar para outra página após o login
-
     } catch (error) {
         res.json({ erro: 'Erro no login. Tente novamente mais tarde.' });
     }

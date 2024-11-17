@@ -1,93 +1,58 @@
-// Dados dos pratos
-const pratos = [
-    { nome: "Pizza Margherita", categoria: "Bebida", preco: 29.90, img: "https://via.placeholder.com/200" },
-    { nome: "Sopa de Tomate", categoria: "Bebida", preco: 15.00, img: "https://via.placeholder.com/200" },
-    { nome: "Salada Caesar", categoria: "Bebida", preco: 18.50, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Pizza Margherita", categoria: "Bebida", preco: 29.90, img: "https://via.placeholder.com/200" },
-    { nome: "Sopa de Tomate", categoria: "Bebida", preco: 15.00, img: "https://via.placeholder.com/200" },
-    { nome: "Salada Caesar", categoria: "Bebida", preco: 18.50, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Pizza Margherita", categoria: "Bebida", preco: 29.90, img: "https://via.placeholder.com/200" },
-    { nome: "Sopa de Tomate", categoria: "Bebida", preco: 15.00, img: "https://via.placeholder.com/200" },
-    { nome: "Salada Caesar", categoria: "Bebida", preco: 18.50, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Pizza Margherita", categoria: "Bebida", preco: 29.90, img: "https://via.placeholder.com/200" },
-    { nome: "Sopa de Tomate", categoria: "Bebida", preco: 15.00, img: "https://via.placeholder.com/200" },
-    { nome: "Salada Caesar", categoria: "Bebida", preco: 18.50, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Pizza Margherita", categoria: "Bebida", preco: 29.90, img: "https://via.placeholder.com/200" },
-    { nome: "Sopa de Tomate", categoria: "Bebida", preco: 15.00, img: "https://via.placeholder.com/200" },
-    { nome: "Salada Caesar", categoria: "Bebida", preco: 18.50, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Pizza Margherita", categoria: "Bebida", preco: 29.90, img: "https://via.placeholder.com/200" },
-    { nome: "Sopa de Tomate", categoria: "Bebida", preco: 15.00, img: "https://via.placeholder.com/200" },
-    { nome: "Salada Caesar", categoria: "Bebida", preco: 18.50, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Pizza Margherita", categoria: "Bebida", preco: 29.90, img: "https://via.placeholder.com/200" },
-    { nome: "Sopa de Tomate", categoria: "Bebida", preco: 15.00, img: "https://via.placeholder.com/200" },
-    { nome: "Salada Caesar", categoria: "Bebida", preco: 18.50, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Pizza Margherita", categoria: "Bebida", preco: 29.90, img: "https://via.placeholder.com/200" },
-    { nome: "Sopa de Tomate", categoria: "Bebida", preco: 15.00, img: "https://via.placeholder.com/200" },
-    { nome: "Salada Caesar", categoria: "Bebida", preco: 18.50, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Pizza Margherita", categoria: "Bebida", preco: 29.90, img: "https://via.placeholder.com/200" },
-    { nome: "Sopa de Tomate", categoria: "Bebida", preco: 15.00, img: "https://via.placeholder.com/200" },
-    { nome: "Salada Caesar", categoria: "Bebida", preco: 18.50, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Pizza Margherita", categoria: "Bebida", preco: 29.90, img: "https://via.placeholder.com/200" },
-    { nome: "Sopa de Tomate", categoria: "Bebida", preco: 15.00, img: "https://via.placeholder.com/200" },
-    { nome: "Salada Caesar", categoria: "Bebida", preco: 18.50, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Pizza Margherita", categoria: "Bebida", preco: 29.90, img: "https://via.placeholder.com/200" },
-    { nome: "Sopa de Tomate", categoria: "Bebida", preco: 15.00, img: "https://via.placeholder.com/200" },
-    { nome: "Salada Caesar", categoria: "Bebida", preco: 18.50, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" },
-    { nome: "Tiramisu", categoria: "Bebida", preco: 12.00, img: "https://via.placeholder.com/200" }
-];
-
 // Função para exibir os pratos
 const pratosList = document.querySelector(".pratos-list");
 
-pratos.forEach(prato => {
-    const card = document.createElement("div");
-    card.classList.add("card-prato");
+// Função para buscar pratos do banco de dados
+async function carregarPratos() {
+    try {
+        const response = await fetch('/pratos-cadastrados');
+        const pratos = await response.json();
 
-    card.innerHTML = `
-        <img src="${prato.img}" alt="${prato.nome}">
-        <h2>${prato.nome}</h2>
-        <p>Categoria: ${prato.categoria}</p>
-        <p class="preco">Preço: R$ ${prato.preco.toFixed(2)}</p>
-        <button class="btn-remover">Remover</button>
-    `;
+        pratos.forEach(prato => {
+            const card = document.createElement("div");
+            card.classList.add("card-prato");
 
-    // Adiciona o card à lista de pratos
-    pratosList.appendChild(card);
+            card.innerHTML = `
+                <img src="/public/css,js/uploads/${prato.foto}" alt="${prato.nome}">
+                <h2>${prato.nome}</h2>
+                <p>Categoria: ${prato.categoria}</p>
+                <p class="preco">Preço: R$ ${prato.preco.toFixed(2)}</p>
+                <button class="btn-remover">Remover</button>
+            `;
 
-    // Adiciona o evento de clique para remover o card
-    card.querySelector(".btn-remover").addEventListener("click", () => {
-        card.remove(); // Remove o card do DOM
-    });
-});
+            // Adiciona o card à lista de pratos
+            pratosList.appendChild(card);
+
+            // Adiciona o evento de clique para remover o prato
+            card.querySelector(".btn-remover").addEventListener("click", async () => {
+                const nomePrato = prato.nome; // Pega o nome do prato
+
+                // Envia a solicitação para remover o prato do banco de dados
+                try {
+                    const response = await fetch('/remover-prato', {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ nome: nomePrato }), // Envia o nome do prato
+                    });
+
+                    if (response.ok) {
+                        // Remove o prato do DOM
+                        card.remove();
+                    } else {
+                        const data = await response.json();
+                        alert(data.erro || 'Erro ao remover o prato');
+                    }
+                } catch (error) {
+                    console.error('Erro ao remover o prato:', error);
+                    alert('Erro ao remover o prato');
+                }
+            });
+        });
+    } catch (error) {
+        console.error("Erro ao carregar pratos:", error);
+    }
+}
+
+// Chama a função para carregar os pratos
+carregarPratos();
