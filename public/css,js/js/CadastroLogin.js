@@ -18,14 +18,14 @@ document.getElementById("btnCadastrar").addEventListener("click", function(event
 
     // Validação do email: Verifica se o email contém '@gmail.com' e um nome de usuário antes
     if (!email.includes("@gmail.com") || email.indexOf("@gmail.com") === 0) {
-        mensagemErro.textContent = "Por favor, insira um email válido";
+        mensagemErro.textContent = "Por favor, insira um email válido.";
         mensagemErro.style.display = "block";
         return;
     }
 
-    // Validação da senha: Verifica se a senha tem no máximo 8 caracteres
-    if (senha.length > 8) {
-        mensagemErro.textContent = "A senha deve ter no máximo 8 caracteres.";
+    // Validação da senha: Verifica se a senha tem entre 6 e 8 caracteres
+    if (senha.length < 6 || senha.length > 8) {
+        mensagemErro.textContent = "A senha deve ter entre 6 e 8 caracteres.";
         mensagemErro.style.display = "block";
         return;
     }
@@ -37,12 +37,38 @@ document.getElementById("btnCadastrar").addEventListener("click", function(event
         return;
     }
 
-    // Se todas as validações passarem
+    // Se todas as validações passarem, envia a solicitação para o backend
     mensagemErro.style.display = "none";
 
-    // Redireciona para a página de login
+    // Criar o objeto de dados a ser enviado
+    const dadosCadastro = {
+        email: email,
+        senha: senha
+    };
 
-    window.location.href = "/views/login.html";
+    fetch('/cadastrar', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dadosCadastro) // Envia os dados em formato JSON
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.erro) {
+            mensagemErro.textContent = `${data.erro}`; // Exibe o alerta se o email já estiver cadastrado
+            mensagemErro.style.display = "block";
+        } else {
+            // Se o cadastro for bem-sucedido, redireciona
+            alert('Cadastro realizado com sucesso!');
+            window.location.href = '/logar'; // Redireciona para a página de login
+        }
+    })
+    .catch(error => {
+        console.error("Erro ao cadastrar:", error);
+        mensagemErro.textContent = "Houve um erro ao tentar realizar o cadastro. Tente novamente.";
+        mensagemErro.style.display = "block";
+    });
 });
 
 // Funcionalidade para alternar a visibilidade da senha

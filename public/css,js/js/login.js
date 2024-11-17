@@ -29,18 +29,36 @@ document.getElementById("btnLogin").addEventListener("click", function(event) {
         return;
     }
 
-    // Se todas as validações passarem
-    mensagemErro.style.display = "none";
-    alert("Login realizado com sucesso!");
-
-    // Redireciona para a página de acesso
-    window.location.href = "balconista.html";
-    window.location.href = "/ADM";
+    // Se todas as validações passarem, faz a requisição de login
+    fetch('/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, senha })
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Se houver um erro, exibe a mensagem
+        if (data.erro) {
+            mensagemErro.textContent = data.erro;
+            mensagemErro.style.display = "block";
+        } else {
+            // Caso contrário, sucesso no login
+            mensagemErro.style.display = "none";
+            alert("Login realizado com sucesso!");
+            window.location.href = "/ADM"; // Redireciona para a página de acesso
+        }
+    })
+    .catch(error => {
+        mensagemErro.textContent = "Erro na requisição. Tente novamente mais tarde.";
+        mensagemErro.style.display = "block";
+    });
 });
 
 // Função para alternar a visibilidade da senha
-function toggleSenhaVisibility(id) {
-    const senhaInput = document.getElementById(id);
+function toggleSenhaVisibility(eyeSenha) {
+    const senhaInput = document.getElementById(eyeSenha);
     const tipo = senhaInput.type === "password" ? "text" : "password";
     senhaInput.type = tipo;
 }

@@ -1,7 +1,7 @@
 const db = require('./db');
 
-const post = db.sequelize.define('Pratos', {
-    prato: { // alterado para 'prato'
+const pedidos = db.sequelize.define('Pratos', {
+    prato: {  
         type: db.Sequelize.STRING
     },
     descriçao: {
@@ -9,4 +9,5 @@ const post = db.sequelize.define('Pratos', {
     },
 });
 
-module.exports = post;
+
+module.exports = pedidos;

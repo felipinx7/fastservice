@@ -136,6 +136,7 @@ input:focus::placeholder {
 }
 
 #mensagemErro {
+    white-space: nowrap;
     font-size: 1rem;
     margin-top: 2rem;
     text-align: center;
