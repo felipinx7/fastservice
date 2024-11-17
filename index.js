@@ -22,12 +22,12 @@ app.use(bodyParser.json())
 app.get('/', function(req, res){
     res.render('login')
 })
-app.get('/views/cadastrar.hbs', function(req, res){
+app.get('/cadastrar', function(req, res){
     res.render('cadastrar')
 })
 
 app.get('/ADM', function(req, res){
-    res.render('ADM')
+    res.render('balconista')
 })
 app.get('/fast-service', function(req, res){
     res.render('fast-service')
