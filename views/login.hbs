@@ -34,6 +34,22 @@
             <h4 class="h4-parte-final">
                 Não tem uma conta? <span><a href="/views/cadastrar.html" class="cadastrar" target="_blank">Clique aqui</a></span>
             </h4>
+    <img src="/public/css,js/img/Background-Login.jpg" class="img-fundo" alt="">
+    <div class="container">
+        <div class="container-login">
+            <h1 class="h1-login">LOGIN</h1>
+            <div class="info-login">
+                <label for="email">Email</label><br>
+                <i class="bi bi-person-fill"></i>
+                <input type="email" id="email" placeholder="Digite seu email" required><br>
+                <label for="senha">Senha</label><br>
+                <i class="fas fa-lock"></i>
+                <input type="password" id="senha" placeholder="Digite sua Senha" required>
+                <i class="fas fa-eye" id="eyeSenha" onclick="toggleSenhaVisibility('senha')"></i><br>
+            </div>
+            <span id="mensagemErro" style="color: red; display: none;">Por favor, preencha todos os campos corretamente.</span><br>
+            <button class="btn-acessar" id="btnLogin">ACESSAR</button>
+            <h4 class="h4-parte-final">Não tem uma Conta? <span><a href="/views/cadastrar.hbs" class="cadastrar" target="_blank">Clique aqui</a></span></h4>
         </div>
     </div>
 

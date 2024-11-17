@@ -57,6 +57,19 @@ app.post('/cadastrar-prato', upload.single('foto'), async (req, res) => {
         res.status(500).send('Erro ao cadastrar o prato');
     }
 });
+app.get('/login', function(req, res){
+    res.render('login')
+})
+app.get('/cadastrar', function(req, res){
+    res.render('cadastrar')
+})
+
+app.get('/balconista', function(req, res){
+    res.render('balconista')
+})
+app.get('/fast-service', function(req, res){
+    res.render('fast-service')
+})
 
 // Rota para buscar os pratos do cardápio
 app.get('/pratos-cadastrados', async (req, res) => {

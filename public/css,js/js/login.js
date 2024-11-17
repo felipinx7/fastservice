@@ -54,6 +54,12 @@ document.getElementById("btnLogin").addEventListener("click", function(event) {
         mensagemErro.textContent = "Erro na requisição. Tente novamente mais tarde.";
         mensagemErro.style.display = "block";
     });
+    // Se todas as validações passarem
+    mensagemErro.style.display = "none";
+    alert("Login realizado com sucesso!");
+
+    // Redireciona para a página de acesso
+    window.location.href = "/balconista";
 });
 
 // Função para alternar a visibilidade da senha
