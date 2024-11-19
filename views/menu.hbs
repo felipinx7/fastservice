@@ -20,19 +20,70 @@
 </head>
 
 <body>
+    <div id="alerta" class="alerta">
+    <div id="alerta-msg"></div>
+    <button onclick="fecharAlerta()">Fechar</button>
+</div>
     
+
     <!--========================================== PARTE DE QUE O PEDIDO FOI BEM SUCEDIDO ========================================-->
     <div class="success">
         <div class="div">
-            <div class="success-prompt-heading">Pedido Realizado!</div>
-            <div class="success-prompt-prompt">Seu pedido foi realizado com sucesso. <br> Espere cerca de 10 minutos!
+            <div class="success-prompt-heading">Pedido Realizado com sucesso!</div>
             </div>
+            <h3 class="h3-parte-ava">Como você avalia nosso sistema online?</h3>
+            <form action="avaliacao" method="post">
+                <div class="nomes">
+                    <input type="text" class="input-nomes" name="nome" placeholder="Nome" required>
+                    <input type="text" class="input-nomes" name="sobrenome" placeholder="Sobrenome" required>
+                </div>
+                <textarea name="avaliacao" placeholder="Digite sua avaliação sobre o sistema.." maxlength="140" required></textarea>
+            <div class="input-icons">
+                <input type="radio" id="star1" name="estrelas" value="5" required>
+                <label for="star1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                        <path d="M5.48279 0.313927L6.61067 2.70364C6.6891 2.86984 6.84075 2.98501 7.01618 3.01162L9.5383 3.39485C9.9801 3.46203 10.1564 4.02958 9.8368 4.35523L8.0118 6.21535C7.88497 6.34469 7.82698 6.53118 7.85702 6.71375L8.28777 9.34033C8.36328 9.80035 7.90145 10.1511 7.50637 9.93405L5.25063 8.69405C5.09376 8.60789 4.90624 8.60789 4.74937 8.69405L2.49363 9.93405C2.09855 10.1513 1.63672 9.80035 1.71223 9.34033L2.14298 6.71375C2.17302 6.53118 2.11503 6.34469 1.9882 6.21535L0.163203 4.35523C-0.156365 4.02936 0.019898 3.46182 0.461702 3.39485L2.98382 3.01162C3.15925 2.98501 3.3109 2.86984 3.38933 2.70364L4.51721 0.313927C4.71454 -0.104642 5.28525 -0.104642 5.48279 0.313927Z"/>
+                    </svg>
+                </label>
+            
+                <input type="radio" id="star2" name="estrelas" value="4" required>
+                <label for="star2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                        <path d="M5.48279 0.313927L6.61067 2.70364C6.6891 2.86984 6.84075 2.98501 7.01618 3.01162L9.5383 3.39485C9.9801 3.46203 10.1564 4.02958 9.8368 4.35523L8.0118 6.21535C7.88497 6.34469 7.82698 6.53118 7.85702 6.71375L8.28777 9.34033C8.36328 9.80035 7.90145 10.1511 7.50637 9.93405L5.25063 8.69405C5.09376 8.60789 4.90624 8.60789 4.74937 8.69405L2.49363 9.93405C2.09855 10.1513 1.63672 9.80035 1.71223 9.34033L2.14298 6.71375C2.17302 6.53118 2.11503 6.34469 1.9882 6.21535L0.163203 4.35523C-0.156365 4.02936 0.019898 3.46182 0.461702 3.39485L2.98382 3.01162C3.15925 2.98501 3.3109 2.86984 3.38933 2.70364L4.51721 0.313927C4.71454 -0.104642 5.28525 -0.104642 5.48279 0.313927Z"/>
+                    </svg>
+                </label>
+            
+                <input type="radio" id="star3" name="estrelas" value="3" required>
+                <label for="star3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                        <path d="M5.48279 0.313927L6.61067 2.70364C6.6891 2.86984 6.84075 2.98501 7.01618 3.01162L9.5383 3.39485C9.9801 3.46203 10.1564 4.02958 9.8368 4.35523L8.0118 6.21535C7.88497 6.34469 7.82698 6.53118 7.85702 6.71375L8.28777 9.34033C8.36328 9.80035 7.90145 10.1511 7.50637 9.93405L5.25063 8.69405C5.09376 8.60789 4.90624 8.60789 4.74937 8.69405L2.49363 9.93405C2.09855 10.1513 1.63672 9.80035 1.71223 9.34033L2.14298 6.71375C2.17302 6.53118 2.11503 6.34469 1.9882 6.21535L0.163203 4.35523C-0.156365 4.02936 0.019898 3.46182 0.461702 3.39485L2.98382 3.01162C3.15925 2.98501 3.3109 2.86984 3.38933 2.70364L4.51721 0.313927C4.71454 -0.104642 5.28525 -0.104642 5.48279 0.313927Z"/>
+                    </svg>
+                </label>
+            
+                <input type="radio" id="star4" name="estrelas" value="2" required>
+                <label for="star4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                        <path d="M5.48279 0.313927L6.61067 2.70364C6.6891 2.86984 6.84075 2.98501 7.01618 3.01162L9.5383 3.39485C9.9801 3.46203 10.1564 4.02958 9.8368 4.35523L8.0118 6.21535C7.88497 6.34469 7.82698 6.53118 7.85702 6.71375L8.28777 9.34033C8.36328 9.80035 7.90145 10.1511 7.50637 9.93405L5.25063 8.69405C5.09376 8.60789 4.90624 8.60789 4.74937 8.69405L2.49363 9.93405C2.09855 10.1513 1.63672 9.80035 1.71223 9.34033L2.14298 6.71375C2.17302 6.53118 2.11503 6.34469 1.9882 6.21535L0.163203 4.35523C-0.156365 4.02936 0.019898 3.46182 0.461702 3.39485L2.98382 3.01162C3.15925 2.98501 3.3109 2.86984 3.38933 2.70364L4.51721 0.313927C4.71454 -0.104642 5.28525 -0.104642 5.48279 0.313927Z"/>
+                    </svg>
+                </label>
+            
+                <input type="radio" id="star5" name="estrelas" value="1" required>
+                <label for="star5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                        <path d="M5.48279 0.313927L6.61067 2.70364C6.6891 2.86984 6.84075 2.98501 7.01618 3.01162L9.5383 3.39485C9.9801 3.46203 10.1564 4.02958 9.8368 4.35523L8.0118 6.21535C7.88497 6.34469 7.82698 6.53118 7.85702 6.71375L8.28777 9.34033C8.36328 9.80035 7.90145 10.1511 7.50637 9.93405L5.25063 8.69405C5.09376 8.60789 4.90624 8.60789 4.74937 8.69405L2.49363 9.93405C2.09855 10.1513 1.63672 9.80035 1.71223 9.34033L2.14298 6.71375C2.17302 6.53118 2.11503 6.34469 1.9882 6.21535L0.163203 4.35523C-0.156365 4.02936 0.019898 3.46182 0.461702 3.39485L2.98382 3.01162C3.15925 2.98501 3.3109 2.86984 3.38933 2.70364L4.51721 0.313927C4.71454 -0.104642 5.28525 -0.104642 5.48279 0.313927Z"/>
+                    </svg>
+                </label>
+            </div>
+            <button class="btn-avaliacao" type="submit">Avaliar</button>
+        </form>
+            
             <div class="icon">
                 <img src="/public/css,js/img/icone-pagamento-orange.png" class="icone-pagamneto-ip" alt="">
             </div>
             <div class="success-button-container">
-                <button class="success-button-secondary" id="btn-finishi">Voltar ao Menu</button>
-            </div>
+                <button class="success-button-secondary" id="btn-finishi">
+                    <i class="fas fa-times"></i>
+                </button>
         </div>
     </div>
     <!--====================================================== PARTE DO CARRINHO  =============================================-->
@@ -63,12 +114,12 @@
                     <div class="pix">Pix</div>
                 </div>
             </div>
+
         </div>
 
-            <button class="finalizar" id="btn-finalizar">
-                <div class="texto-botao2">FINALIZAR</div>
-            </button>
-        </div>
+        <button class="finalizar" id="btn-finalizar">
+            <div class="texto-botao2">FINALIZAR</div>
+        </button>
     </div>
     <!--====================================================== PARTE DA CONTA ==============================================-->
     <div class="container-conta">
@@ -185,14 +236,16 @@
 
         </div>
     </div>
-   
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="/public/css,js/js/finalizar-pedidos.js"></script>
     <script src="/public/css,js/js/menu.js"></script>
+    <script src="/public/css,js/js/cardcarrinho.js"></script>
     <script src="/public/css,js/js/AdicionarCard.js"></script>
     <script src="/public/css,js/js/carrinho.js"></script>
+    <script src="/public/css,js/js/alerta.js"></script>
     <!-- BLIBLIOTECA SRCOLLREVEAL -->
     <script src="https://unpkg.com/scrollreveal"></script>
     <!-- PARTE DO BOOTSTRAP -->

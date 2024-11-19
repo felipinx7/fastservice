@@ -1,8 +1,8 @@
-document.getElementById("btnLogin").addEventListener("click", function(event) {
+document.getElementById("btnLogin").addEventListener("click", function (event) {
     event.preventDefault(); // Impede o envio do formulário
 
-    const email = document.getElementById("email").value;
-    const senha = document.getElementById("senha").value;
+    const email = document.getElementById("email").value.trim();
+    const senha = document.getElementById("senha").value.trim();
     const mensagemErro = document.getElementById("mensagemErro");
 
     // Reseta a mensagem de erro ao clicar
@@ -35,36 +35,28 @@ document.getElementById("btnLogin").addEventListener("click", function(event) {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, senha })
+        body: JSON.stringify({ email, senha }),
     })
-    .then(response => response.json())
-    .then(data => {
-        // Se houver um erro, exibe a mensagem
-        if (data.erro) {
-            mensagemErro.textContent = data.erro;
+        .then(response => response.json())
+        .then(data => {
+            if (data.erro) {
+                // Exibe mensagem de erro recebida
+                mensagemErro.textContent = data.erro;
+                mensagemErro.style.display = "block";
+            } else {
+                // Login realizado com sucesso
+                alert("Login realizado com sucesso!");
+                window.location.href = "/ADM"; // Redireciona para a página de acesso
+            }
+        })
+        .catch(error => {
+            mensagemErro.textContent = "Erro na requisição. Tente novamente mais tarde.";
             mensagemErro.style.display = "block";
-        } else {
-            // Caso contrário, sucesso no login
-            mensagemErro.style.display = "none";
-            alert("Login realizado com sucesso!");
-            window.location.href = "/ADM"; // Redireciona para a página de acesso
-        }
-    })
-    .catch(error => {
-        mensagemErro.textContent = "Erro na requisição. Tente novamente mais tarde.";
-        mensagemErro.style.display = "block";
-    });
-    // Se todas as validações passarem
-    mensagemErro.style.display = "none";
-    alert("Login realizado com sucesso!");
-
-    // Redireciona para a página de acesso
-    window.location.href = "/balconista";
+        });
 });
 
 // Função para alternar a visibilidade da senha
 function toggleSenhaVisibility(eyeSenha) {
     const senhaInput = document.getElementById(eyeSenha);
-    const tipo = senhaInput.type === "password" ? "text" : "password";
-    senhaInput.type = tipo;
+    senhaInput.type = senhaInput.type === "password" ? "text" : "password";
 }

@@ -7,6 +7,7 @@ const app = express();
 const pedidos = require('./models/pedidos');
 const Balconista = require('./models/balconista');
 const Cardapio = require('./models/cardapio')
+const Avaliacoes = require('./models/avaliacao')
 const bcrypt = require('bcryptjs');
 const multer = require('multer');
 const path = require('path');
@@ -57,6 +58,8 @@ app.post('/cadastrar-prato', upload.single('foto'), async (req, res) => {
         res.status(500).send('Erro ao cadastrar o prato');
     }
 });
+
+
 app.get('/login', function(req, res){
     res.render('login')
 })
@@ -83,7 +86,7 @@ app.get('/pratos-cadastrados', async (req, res) => {
 });
 // Rota para remover um prato pelo nome
 app.delete('/remover-prato', async (req, res) => {
-    const { nome } = req.body; // Espera o nome do prato no corpo da requisição
+    const { nome } = req.body;
 
     try {
         // Encontre e remova o prato com o nome fornecido
@@ -100,11 +103,15 @@ app.delete('/remover-prato', async (req, res) => {
         res.status(500).json({ erro: 'Erro ao remover prato' });
     }
 });
+// Rota para página ADM
+app.get('/ADM', function (req, res) {
+    res.render('balconista');
+});
 
 
 // Cadastro de balconista
 
-app.get('/cadastrar', function (req, res) {
+app.get('/views/cadastrar.html', function (req, res) {
     res.render('cadastrar');
 });
 // Cadastro de balconista
@@ -125,9 +132,6 @@ app.post('/cadastrar', async function (req, res) {
         // Resposta de sucesso
         res.json({ sucesso: 'Cadastro realizado com sucesso!' });
 
-        // Redirecionamento após o cadastro
-        // Se você quer redirecionar para a página de login após o cadastro, você pode usar o res.redirect:
-        // res.redirect('/logar');
     } catch (error) {
         // Captura e loga o erro real
         console.error('Erro ao realizar o cadastro:', error);
@@ -154,10 +158,10 @@ app.post('/login', async function (req, res) {
             return res.json({ erro: 'Email não encontrado.' });
         }
 
-        // Comparando a senha fornecida com a armazenada no banco (agora sem bcrypt)
-        if (senha !== balconista.senha) {
+        // Comparando a senha fornecida com a armazenada no banco
+        if (senha.trim() !== balconista.senha.trim()) {
             return res.json({ erro: 'Senha incorreta.' });
-        }
+        }        
 
         // Login bem-sucedido
         res.json({ sucesso: 'Login realizado com sucesso!' });
@@ -166,12 +170,37 @@ app.post('/login', async function (req, res) {
         res.json({ erro: 'Erro no login. Tente novamente mais tarde.' });
     }
 });
+app.get("/avaliacao", function(req, res){
+    res.render('menu')
+})
+app.post("/avaliacao", async function(req, res) {
+    const { nome, sobrenome, avaliacao, estrelas } = req.body;
 
-
-// Rota para página ADM
-app.get('/ADM', function (req, res) {
-    res.render('balconista');
+    try {
+        // Criando a nova avaliação no banco de dados
+        const NovaAvaliacao = await Avaliacoes.create({
+            nome,
+            sobrenome,
+            avaliacao,
+            estrelas
+        });
+        
+        // Redireciona para a página 'balconista' após o sucesso
+        res.redirect("/menu");  // Se necessário, substitua com a URL correta para redirecionar
+    } catch (error) {
+        console.error("Erro ao salvar a avaliação:", error);
+        res.status(500).send("Erro ao salvar a avaliação");
+    }
 });
+app.get("/todasavaliacao", async function(req, res){
+    try {
+        const todasavaliacao = await Avaliacoes.findAll();
+        res.json(todasavaliacao);
+    } catch (error) {
+        console.error("Erro ao buscar pratos:", error);
+        res.status(500).json({ erro: 'Erro ao buscar pratos do cardápio' });
+    }
+})
 
 // Rota para Fast Service
 app.get('/fast-service', function (req, res) {
@@ -196,11 +225,6 @@ sequelize.authenticate()
     .catch(err => {
         console.error('Não foi possível conectar ao banco de dados:', err);
     });
-
-// Página inicial
-app.get('/', (req, res) => {
-    res.render('index');
-});
 
 // Rota para card
 app.get('/card', function (req, res) {
