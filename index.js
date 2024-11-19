@@ -57,18 +57,12 @@ app.post('/cadastrar-prato', upload.single('foto'), async (req, res) => {
         res.status(500).send('Erro ao cadastrar o prato');
     }
 });
-app.get('/login', function(req, res){
+app.get('/', function(req, res){
     res.render('login')
-})
-app.get('/cadastrar', function(req, res){
-    res.render('cadastrar')
 })
 
 app.get('/balconista', function(req, res){
     res.render('balconista')
-})
-app.get('/fast-service', function(req, res){
-    res.render('fast-service')
 })
 
 // Rota para buscar os pratos do cardápio
@@ -137,11 +131,6 @@ app.post('/cadastrar', async function (req, res) {
     }
 });
 
-
-app.get('/logar', function (req, res) {
-    res.render('login');
-});
-
 // Login de pedidos
 app.post('/login', async function (req, res) {
     const { email, senha } = req.body;
@@ -167,12 +156,6 @@ app.post('/login', async function (req, res) {
     }
 });
 
-
-// Rota para página ADM
-app.get('/ADM', function (req, res) {
-    res.render('balconista');
-});
-
 // Rota para Fast Service
 app.get('/fast-service', function (req, res) {
     res.render('fast-service');
@@ -196,11 +179,6 @@ sequelize.authenticate()
     .catch(err => {
         console.error('Não foi possível conectar ao banco de dados:', err);
     });
-
-// Página inicial
-app.get('/', (req, res) => {
-    res.render('index');
-});
 
 // Rota para card
 app.get('/card', function (req, res) {

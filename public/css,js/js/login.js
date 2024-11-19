@@ -47,7 +47,7 @@ document.getElementById("btnLogin").addEventListener("click", function(event) {
             // Caso contrário, sucesso no login
             mensagemErro.style.display = "none";
             alert("Login realizado com sucesso!");
-            window.location.href = "/ADM"; // Redireciona para a página de acesso
+            window.location.href = "/balconista"; // Redireciona para a página de acesso
         }
     })
     .catch(error => {
