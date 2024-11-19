@@ -61,17 +61,12 @@ app.post('/cadastrar-prato', upload.single('foto'), async (req, res) => {
 
 
 app.get('/login', function(req, res){
+app.get('/', function(req, res){
     res.render('login')
-})
-app.get('/cadastrar', function(req, res){
-    res.render('cadastrar')
 })
 
 app.get('/balconista', function(req, res){
     res.render('balconista')
-})
-app.get('/fast-service', function(req, res){
-    res.render('fast-service')
 })
 
 // Rota para buscar os pratos do cardápio
@@ -139,11 +134,6 @@ app.post('/cadastrar', async function (req, res) {
         // Mensagem de erro genérica para o cliente
         res.json({ erro: 'Erro no cadastro. Tente novamente mais tarde.' });
     }
-});
-
-
-app.get('/logar', function (req, res) {
-    res.render('login');
 });
 
 // Login de pedidos
