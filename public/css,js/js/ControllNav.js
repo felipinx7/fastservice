@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', function() {
 document.getElementById("open_btn").addEventListener("click", function() {
     // Alterna a classe nav-open para cada um dos elementos principais
     document.getElementById("open_btn").classList.toggle("nav-open");
@@ -8,11 +9,15 @@ document.getElementById("open_btn").addEventListener("click", function() {
     document.querySelector(".container")?.classList.toggle("nav-open");
     document.querySelector(".bnt-comprovante")?.classList.toggle("nav-open");
 
-    // Usando querySelectorAll para alternar classe em múltiplos elementos
+    // Alterna a classe nav-open para os elementos com a classe "remover"
     document.querySelectorAll(".remover").forEach(element => element.classList.toggle("nav-open"));
+
+    // Alterna a classe nav-open para os botões de remover (bnt-remover) e seus filhos
     document.querySelectorAll(".bnt-remover").forEach(element => element.classList.toggle("nav-open"));
+
     document.querySelectorAll(".bnt-remover-item").forEach(element => element.classList.toggle("nav-open"));
 
+    // Alterna a classe nav-open para outros elementos
     document.querySelector(".container-adicionar-pratos")?.classList.toggle("nav-open");
     document.querySelector(".container-remover-pratos")?.classList.toggle("nav-open");
     document.querySelector(".container-avaliacao")?.classList.toggle("nav-open");
@@ -33,4 +38,5 @@ document.getElementById("open_btn").addEventListener("click", function() {
     elementosPedidos.forEach(element => {
         element.classList.toggle("nav-open");
     });
+});
 });

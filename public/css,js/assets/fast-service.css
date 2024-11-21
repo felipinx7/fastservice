@@ -69,7 +69,6 @@
 
     html {
         background-color: rgb(255, 255, 255);
-        height: 500vh;
     }
 
     .flex {
@@ -157,6 +156,7 @@
         position: absolute;
         transition: width 0.3s ease-in-out;
         left: 0;
+        border-radius: 10px;
     }
 
     header {
@@ -382,6 +382,7 @@
 
     .div-cards-funcionalidades {
         display: flex;
+
         justify-content: center;
         justify-content: space-between;
         transform: translate(-36rem, 2rem);
@@ -680,25 +681,7 @@
     footer {
         height: 10vh;
         background-color: #22211f;
-        transform: translateY(-5rem);
     }
-
-    .imagem-footer {
-        width: 190px;
-        transform: translateX(600px);
-    }
-
-    .rede-sociais-footer {
-        width: 120px;
-        filter: grayscale(50%) brightness(100%);
-        transform: translate(900px, -35px);
-    }
-
-    .logo-do-footer {
-        width: 140px;
-        margin-left: 450px;
-    }
-
     .h2-footer {
         margin-left: 1086px;
         margin-top: -10px;

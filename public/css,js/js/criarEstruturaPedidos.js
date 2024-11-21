@@ -98,33 +98,21 @@ document.addEventListener("DOMContentLoaded", function () {
                     <button class="bnt-remover">
                         <div class="texto-bnt">Remover</div>
                     </button>
-                    <button class="bnt-remover-item">
-                        <div class="texto-bnt">Remover Item</div>
-                    </button>
                 `;
 
                 pendentesDiv.appendChild(estrutura);
 
-                // Evento de remover item
-                estrutura.querySelector('.bnt-remover-item').addEventListener('click', function () {
-                    if (qtd > 1) {
-                        qtd--;
-                        estrutura.querySelector('.p-qtd').textContent = `Quantidade: ${qtd}`;
-                    } else {
-                        estrutura.querySelector('.bnt-remover').click();
-                    }
-                });
-
                 // Evento de remover pedido
                 estrutura.querySelector('.bnt-remover').addEventListener('click', function () {
                     estrutura.remove();
+                    atualizarTotal(preco, -qtd);
                 });
 
                 // Adiciona o item ao recibo
                 adicionarItemAoRecibo(item);
             });
         }
-    }
+    } 
 
     // Função para capturar o comprovante e gerar uma imagem
     function gerarComprovante() {

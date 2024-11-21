@@ -96,7 +96,7 @@ app.delete('/remover-prato', async (req: Request, res: Response): Promise<any> =
     }
 });
 
-app.get('/ADM', (req: Request, res: Response) => {
+app.get('/balconista', (req: Request, res: Response) => {
     res.render('balconista');
 });
 
@@ -125,7 +125,7 @@ app.post('/cadastrar', async (req: Request, res: Response): Promise<any> => {
     }
 });
 
-app.post('/login', async (req: Request, res: Response): Promise<any> => {
+app.post('/', async (req: Request, res: Response): Promise<any> => {
     const { email, senha } = req.body;
 
     try {
@@ -180,24 +180,6 @@ app.get('/fast-service', (req: Request, res: Response) => {
 
 app.get('/menu', (req: Request, res: Response) => {
     res.render('menu');
-});
-
-app.get('/card', (req: Request, res: Response) => {
-    console.log('Rota /card acessada');
-    res.render('pratos');
-});
-
-app.post('/add', async (req: Request, res: Response) => {
-    try {
-        await prisma.pedido.create({
-            data: { prato: req.body.prato, descricao: req.body.descricao },
-        });
-
-        res.redirect('/');
-    } catch (error) {
-        console.error('Erro ao adicionar prato:', error);
-        res.send('Houve um erro: ' + error);
-    }
 });
 
 // Start Server

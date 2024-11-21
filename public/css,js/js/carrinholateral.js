@@ -71,7 +71,7 @@ pendentes.addEventListener('click', function(event) {
             element.style.position = "absolute";
             element.style.color = "black";
             element.style.fontWeight = "700";
-            element.style.transform = "translate(19rem, 3rem)";
+            element.style.transform = "translate(31rem, 3rem)";
             element.style.transition = "transform 0.3s ease, color 0.3s ease";
         });
 
