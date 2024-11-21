@@ -1,9 +1,7 @@
-const path = require('path')
+import path from 'path'
 
-
-const pathConfig = {
+export const pathConfig = {
     viewsPath: path.resolve('views'),
     publicPath: path.resolve('public')
 }
 
-module.exports = pathConfig

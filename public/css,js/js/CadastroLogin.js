@@ -61,7 +61,7 @@ document.getElementById("btnCadastrar").addEventListener("click", function(event
         } else {
             // Se o cadastro for bem-sucedido, redireciona
             alert('Cadastro realizado com sucesso!');
-            window.location.href = '/logar'; // Redireciona para a página de login
+            window.location.href = '/'; // Redireciona para a página de login
         }
     })
     .catch(error => {

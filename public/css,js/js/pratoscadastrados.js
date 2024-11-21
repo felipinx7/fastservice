@@ -24,7 +24,7 @@ async function carregarPratos() {
 
             // Adiciona o evento de clique para remover o prato
             card.querySelector(".btn-remover").addEventListener("click", async () => {
-                const nomePrato = prato.nome; // Pega o nome do prato
+                const idPrato = prato.id; // Pega o nome do prato
 
                 // Envia a solicitação para remover o prato do banco de dados
                 try {
@@ -33,7 +33,7 @@ async function carregarPratos() {
                         headers: {
                             'Content-Type': 'application/json',
                         },
-                        body: JSON.stringify({ nome: nomePrato }), // Envia o nome do prato
+                        body: JSON.stringify({ id: idPrato }), // Envia o nome do prato
                     });
 
                     if (response.ok) {

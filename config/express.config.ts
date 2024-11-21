@@ -1,7 +1,7 @@
-const { create } = require('express-handlebars');
-const pathConfig = require('./path.config');
+import { create } from 'express-handlebars'
+import { pathConfig } from "./path.config";
 
-const hbs = create({
+export const hbs = create({
     extname: '.hbs', 
     defaultLayout: false, 
     partialsDir: pathConfig.viewsPath,
@@ -11,4 +11,3 @@ const hbs = create({
     },
 });
 
-module.exports = hbs;

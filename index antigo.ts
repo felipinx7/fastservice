@@ -1,17 +1,35 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const Sequelize = require('sequelize');
-const hbs = require('./config/express.config');
-const pathConfig = require('./config/path.config');
-const app = express();
-const pedidos = require('./models/pedidos');
-const Balconista = require('./models/balconista');
-const Cardapio = require('./models/cardapio')
-const Avaliacoes = require('./models/avaliacao')
-const bcrypt = require('bcryptjs');
-const multer = require('multer');
-const path = require('path');
+// const pedidos = require('./models/pedidos');
+// const Balconista = require('./models/balconista');
+// const Cardapio = require('./models/cardapio')
+// const Avaliacoes = require('./models/avaliacao')
+// const Sequelize = require('sequelize');
+import express, { Request, Response } from 'express';
+import bodyParser from 'body-parser';
+import hbs from './config/express.config';
+import pathConfig from './config/path.config';
+import bcrypt from 'bcryptjs';
+import multer, { DiskStorageOptions, FileFilterCallback } from 'multer';
+import path from 'path';
 
+import { PrismaClient } from '@prisma/client';
+
+const app = express();
+const prisma = new PrismaClient();
+
+
+// Conexão com o banco de dados
+// const sequelize = new Sequelize('db_startup', 'root', '', {
+//     host: 'localhost',
+//     dialect: 'mysql',
+// });
+
+// sequelize.authenticate()
+//     .then(() => {
+//         console.log('Conexão com o banco de dados estabelecida com sucesso.');
+//     })
+//     .catch(err => {
+//         console.error('Não foi possível conectar ao banco de dados:', err);
+//     });
 
 // Configuração do multer para upload de imagens
 const storage = multer.diskStorage({
@@ -60,7 +78,7 @@ app.post('/cadastrar-prato', upload.single('foto'), async (req, res) => {
 });
 
 
-app.get('/login', function(req, res){
+// app.get('/login', function(req, res){
 app.get('/', function(req, res){
     res.render('login')
 })
@@ -106,7 +124,7 @@ app.get('/ADM', function (req, res) {
 
 // Cadastro de balconista
 
-app.get('/views/cadastrar.html', function (req, res) {
+app.get('/views/cadastrar.hbs', function (req, res) {
     res.render('cadastrar');
 });
 // Cadastro de balconista
@@ -202,19 +220,7 @@ app.get('/menu', function (req, res) {
     res.render('menu');
 });
 
-// Conexão com o banco de dados
-const sequelize = new Sequelize('db_startup', 'root', '', {
-    host: 'localhost',
-    dialect: 'mysql',
-});
 
-sequelize.authenticate()
-    .then(() => {
-        console.log('Conexão com o banco de dados estabelecida com sucesso.');
-    })
-    .catch(err => {
-        console.error('Não foi possível conectar ao banco de dados:', err);
-    });
 
 // Rota para card
 app.get('/card', function (req, res) {
