@@ -1,7 +1,7 @@
 // Seleciona os elementos
 const carrinho = document.querySelector(".container-carrinho");
 const banner = document.querySelector(".img-banner");
-const iconeFechar = document.querySelector(".icone-fechar");
+const iconeFechar = document.querySelector(".bi-x.thick-x-icon"); // Seleciona o ícone de fechar
 const pendentes = document.getElementById('pendentes');
 const bntAceitar = document.querySelectorAll('.bnt-aceitar');
 const bntRemover = document.querySelectorAll('.bnt-remover');
@@ -16,18 +16,18 @@ const bntRemoverItem = document.querySelectorAll('.bnt-remover-item');
     });
 });
 
-// Função para abrir o carrinho
+// Função para abrir ou fechar o carrinho
 pendentes.addEventListener('click', function(event) {
-    // Impede que o carrinho seja aberto ao clicar dentro de outros elementos
+    // Verifica se o clique ocorreu dentro de um botão de ação (aceitar, remover, etc.)
     if (event.target.closest('.bnt-aceitar, .bnt-remover, .bnt-remover-item')) {
-        return; // Impede a propagação do clique, se for no botão
+        return; // Não faz nada se o clique for em um dos botões
     }
 
-    // Adiciona a classe 'comprovante-active' ao #pendentes
+    // Caso contrário, alterna a visibilidade do carrinho
     pendentes.classList.toggle('comprovante-active');
 
-    // Alterna o display da .container-carrinho
     if (pendentes.classList.contains('comprovante-active')) {
+        // Abre o carrinho
         carrinho.style.display = 'block'; // Mostra o carrinho
         setTimeout(() => {
             carrinho.style.opacity = '1'; // Torna o carrinho visível
@@ -57,6 +57,7 @@ pendentes.addEventListener('click', function(event) {
             element.style.transition = "all 0.3s ease";
         });
 
+        // Ajustes de estilo para os itens
         document.querySelectorAll(".pedidos").forEach(element => {
             element.style.border = "solid 2px var(--cor-de-variação)";
             element.style.borderRadius = "1.3rem";
@@ -72,6 +73,15 @@ pendentes.addEventListener('click', function(event) {
             element.style.color = "black";
             element.style.fontWeight = "700";
             element.style.transform = "translate(31rem, 3rem)";
+            element.style.transition = "transform 0.3s ease, color 0.3s ease";
+        });
+
+        // Novo código para p-preco-total1
+        document.querySelectorAll(".p-preco-total1").forEach(element => {
+            element.style.position = "absolute";
+            element.style.color = "black";
+            element.style.fontWeight = "700";
+            element.style.transform = "translate(45rem, 3rem)";
             element.style.transition = "transform 0.3s ease, color 0.3s ease";
         });
 
@@ -107,6 +117,22 @@ pendentes.addEventListener('click', function(event) {
             element.style.backgroundColor = "rgb(76, 236, 76)";
         });
 
+        // Novo código para bnt-mover1
+        document.querySelectorAll(".btn-mover1").forEach(element => {
+            element.style.position = "absolute";
+            element.style.height = "2rem";
+            element.style.marginTop = "-0.11rem";
+            element.style.textAlign = "center";
+            element.style.top = "0";
+            element.style.border = "none";
+            element.style.borderRadius = "10px";
+            element.style.transition = "all 0.3s ease";
+            element.style.cursor = "pointer";
+            element.style.color = "white";
+            element.style.fontWeight = "700";
+            element.style.transform = "translate(-15rem, 2.5rem)";
+        });
+
         document.querySelectorAll(".p-horas").forEach(element => {
             element.style.position = "absolute";
             element.style.fontSize = "0.8rem";
@@ -115,7 +141,7 @@ pendentes.addEventListener('click', function(event) {
             element.style.transition = "all 0.3s ease";
         });
     } else {
-        // Restaura o estado original caso a classe 'comprovante-active' seja removida
+        // Fecha o carrinho e reseta os estilos
         carrinho.style.opacity = '0';
         setTimeout(() => {
             carrinho.style.display = 'none';
@@ -126,7 +152,7 @@ pendentes.addEventListener('click', function(event) {
             banner.style = ''; // Reseta os estilos do banner
         }
 
-        // Restaura os estilos dos elementos do carrinho
+        // Reseta os estilos dos elementos do carrinho
         document.querySelectorAll(".radio-inputs").forEach(element => {
             element.style = ''; // Reseta os estilos
         });
@@ -136,6 +162,11 @@ pendentes.addEventListener('click', function(event) {
         });
 
         document.querySelectorAll(".p-preco-total").forEach(element => {
+            element.style = ''; // Reseta os estilos
+        });
+
+        // Reseta os estilos de .p-preco-total1
+        document.querySelectorAll(".p-preco-total1").forEach(element => {
             element.style = ''; // Reseta os estilos
         });
 
@@ -155,15 +186,24 @@ pendentes.addEventListener('click', function(event) {
             element.style = ''; // Reseta os estilos
         });
 
+        document.querySelectorAll(".btn-mover1").forEach(element => {
+            element.style = ''; // Reseta os estilos do botão .btn-mover1
+        });        
+
         document.querySelectorAll(".p-horas").forEach(element => {
             element.style = ''; // Reseta os estilos
         });
     }
 });
 
-// Função para fechar o carrinho
+// Função para fechar o carrinho ao clicar no ícone de fechar
 iconeFechar.addEventListener("click", function() {
-    // Esconde o carrinho com transição suave
+    // Remove a classe 'comprovante-active' de todos os elementos
+    document.querySelectorAll('.comprovante-active').forEach(element => {
+        element.classList.remove('comprovante-active');
+    });
+
+    // Fecha o carrinho e reseta os estilos
     carrinho.style.opacity = "0";
     setTimeout(() => {
         carrinho.style.display = "none"; // Esconde o carrinho após a transição
@@ -174,7 +214,7 @@ iconeFechar.addEventListener("click", function() {
         banner.style = ''; // Reseta os estilos do banner
     }
 
-    // Restaura os estilos dos elementos do carrinho ao estado inicial
+    // Reseta os estilos dos elementos do carrinho ao estado inicial
     document.querySelectorAll(".radio-inputs").forEach(element => {
         element.style = ''; // Reseta os estilos
     });
@@ -187,7 +227,7 @@ iconeFechar.addEventListener("click", function() {
         element.style = ''; // Reseta os estilos
     });
 
-    document.querySelectorAll(".bnt-remover-item, .bnt-remover, .bnt-aceitar").forEach(element => {
+    document.querySelectorAll(".p-preco-total1").forEach(element => {
         element.style = ''; // Reseta os estilos
     });
 
@@ -200,6 +240,10 @@ iconeFechar.addEventListener("click", function() {
     });
 
     document.querySelectorAll(".bnt-aceitar").forEach(element => {
+        element.style = ''; // Reseta os estilos
+    });
+
+    document.querySelectorAll(".bnt-mover1").forEach(element => {
         element.style = ''; // Reseta os estilos
     });
 
