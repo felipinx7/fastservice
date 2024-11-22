@@ -188,7 +188,7 @@ pendentes.addEventListener('click', function(event) {
 
         document.querySelectorAll(".btn-mover1").forEach(element => {
             element.style = ''; // Reseta os estilos do botão .btn-mover1
-        });        
+        });
 
         document.querySelectorAll(".p-horas").forEach(element => {
             element.style = ''; // Reseta os estilos
@@ -231,6 +231,10 @@ iconeFechar.addEventListener("click", function() {
         element.style = ''; // Reseta os estilos
     });
 
+    document.querySelectorAll(".bnt-remover-item, .bnt-remover, .bnt-aceitar").forEach(element => {
+        element.style = ''; // Reseta os estilos
+    });
+
     document.querySelectorAll(".bnt-remover-item").forEach(element => {
         element.style = ''; // Reseta os estilos
     });
@@ -243,7 +247,7 @@ iconeFechar.addEventListener("click", function() {
         element.style = ''; // Reseta os estilos
     });
 
-    document.querySelectorAll(".bnt-mover1").forEach(element => {
+    document.querySelectorAll(".btn-mover1").forEach(element => {
         element.style = ''; // Reseta os estilos
     });
 
