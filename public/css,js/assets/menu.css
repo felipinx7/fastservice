@@ -257,11 +257,12 @@ hr {
     top: 0;
     right: 0;
     width: 350px;
-    height: 800px;
+    height: 850px;
     transform: translateX(0.5rem);
     background-color: white;
-    z-index: 1;
-}
+    z-index: 1}
+
+
 
 .container-pratos {
     overflow-x: auto;
