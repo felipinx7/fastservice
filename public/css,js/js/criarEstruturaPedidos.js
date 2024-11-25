@@ -7,6 +7,39 @@ document.addEventListener("DOMContentLoaded", function () {
     const metodoPagamento = document.querySelector('#metodoPagamento'); // Elemento para o método de pagamento
     const totalSpan = document.querySelector('.order-total span:last-child'); // Elemento para o total
 
+    // Array de objetos que armazena as informações dos pedidos
+    const pedidos = [
+        {
+            nomePrato: "Prato 1",
+            quantidade: 2,
+            preco: "R$25,00",
+            mesa: "M1",
+            metodoPagamento: "Pix"
+        },
+        {
+            nomePrato: "Prato 2",
+            quantidade: 1,
+            preco: "R$15,00",
+            mesa: "M2",
+            metodoPagamento: "Dinheiro"
+        },
+        {
+            nomePrato: "Prato 3",
+            quantidade: 3,
+            preco: "R$45,00",
+            mesa: "M3",
+            metodoPagamento: "Cartão"
+        }
+    ];
+
+    // Função para formatar a data no formato desejado (dia/mês/ano)
+    function formatarData(data) {
+        const dia = String(data.getDate()).padStart(2, '0'); // Adiciona 0 à esquerda se necessário
+        const mes = String(data.getMonth() + 1).padStart(2, '0'); // Mes começa do 0, por isso somamos 1
+        const ano = data.getFullYear();
+        return `${dia}/${mes}/${ano}`;
+    }
+
     // Função para formatar a hora no formato desejado (horas:minutos AM/PM)
     function formatarHora(data) {
         let horas = data.getHours();
@@ -20,78 +53,23 @@ document.addEventListener("DOMContentLoaded", function () {
         return `${horas}:${minutos} ${periodo}`;
     }
 
-    // Função para adicionar um item ao recibo
-    function adicionarItemAoRecibo(item) {
-        const nomePrato = item.querySelector('.h4-carrinho').textContent || 'Prato desconhecido';
-        const preco = item.querySelector('.h4-preco-carrinho').textContent || 'R$0,00';
-        const qtd = item.querySelector('.h4-qtd-carrinho').textContent.replace('Quantidade: ', '') || 1;
-        const mesa = item.querySelector('.h4-mesa-carrinho').textContent || 'M1';
-        const metodoPagamentoItem = item.querySelector('.h4-metodo-pagamento-carrinho').textContent || 'Pix';
-
-        // Preenche as informações de mesa e método de pagamento (apenas uma vez)
-        numeroMesa.textContent = mesa;
-        metodoPagamento.textContent = metodoPagamentoItem;
-
-        // Cria a estrutura do item no recibo
-        const itemDiv = document.createElement('div');
-        itemDiv.classList.add('order-item');
-
-        // Cria os elementos <span> para prato, quantidade, preço
-        const pratoSpan = document.createElement('span');
-        pratoSpan.textContent = nomePrato;
-
-        const quantidadeSpan = document.createElement('span');
-        quantidadeSpan.textContent = qtd;
-
-        const precoSpan = document.createElement('span');
-        precoSpan.textContent = preco;
-
-        // Adiciona os spans dentro da div do item
-        itemDiv.appendChild(pratoSpan);
-        itemDiv.appendChild(quantidadeSpan);
-        itemDiv.appendChild(precoSpan);
-
-        // Adiciona o item na div receipt
-        receiptDiv.querySelector('.order-info').appendChild(itemDiv);
-
-        // Calcular o total
-        calcularTotal(preco, qtd);
-    }
-
-    // Função para calcular o total
-    function calcularTotal(preco, quantidade) {
-        const precoNumerico = parseFloat(preco.replace('R$', '').replace(',', '.').trim()); // Remove 'R$', vírgula e converte para número
-        const totalAtual = parseFloat(totalSpan.textContent.replace('R$', '').replace(',', '.').trim()) || 0;
-
-        // Calcula o novo total
-        const totalFinal = totalAtual + (precoNumerico * quantidade);
-        totalSpan.textContent = `R$ ${totalFinal.toFixed(2).replace('.', ',')}`;
-    }
-
-    // Função para criar a estrutura do pedido dentro da div #pendentes
+    // Função para criar um card para cada pedido
     function criarPedidoPendentes() {
-        const itensCarrinho = document.querySelectorAll('.item-carrinho');
-
-        if (itensCarrinho.length > 0) {
-            itensCarrinho.forEach(item => {
+        if (pedidos.length > 0) {
+            pedidos.forEach(pedido => {
                 const estrutura = document.createElement('div');
                 estrutura.classList.add('pedidos');
 
-                const nomePrato = item.querySelector('.h4-carrinho').textContent || 'Prato desconhecido';
-                const preco = item.querySelector('.h4-preco-carrinho').textContent || 'R$0,00';
-                const qtd = item.querySelector('.h4-qtd-carrinho').textContent.replace('Quantidade: ', '') || 1;
-                const mesa = item.querySelector('.h4-mesa-carrinho').textContent || 'M1';
-                const metodoPagamento = item.querySelector('.h4-metodo-pagamento-carrinho').textContent || 'Pix';
-
                 const dataAtual = new Date();
-                const horas = formatarHora(dataAtual);
+                const dataFormatada = formatarData(dataAtual); // Formata a data
+                const horas = formatarHora(dataAtual); // Formata a hora
 
                 estrutura.innerHTML = `
-                    <h1 class="h1-blaconista h1">Método pagamento: ${metodoPagamento}</h1>
-                    <p class="p-horas">${horas}</p>
-                    <p class="p-mesas">Mesa: ${mesa}</p>
-                    <p class="p-qtd">Quantidade: ${qtd}</p>
-                    <p class="p-preco-total">${preco}</p>
+                    <h1 class="h1-blaconista h1">Método pagamento: ${pedido.metodoPagamento}</h1>
+                    <p class="p-horas">${dataFormatada} ${horas}</p>
+                    <p class="p-mesas">Mesa: ${pedido.mesa}</p>
+                    <p class="p-qtd">Quantidade: ${pedido.quantidade}</p>
+                    <p class="p-preco-total">${pedido.preco}</p>
                     <button class="bnt-aceitar">
                         <div class="texto-bnt">Aceitar</div>
                     </button>
@@ -105,24 +83,49 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Evento de remover pedido
                 estrutura.querySelector('.bnt-remover').addEventListener('click', function () {
                     estrutura.remove();
-                    atualizarTotal(preco, -qtd);
+                    atualizarTotal(pedido.preco, -pedido.quantidade);
                 });
-
-                // Adiciona o item ao recibo
-                adicionarItemAoRecibo(item);
             });
         }
-    } 
+    }
 
-    // Função para capturar o comprovante e gerar uma imagem
+    // Função para calcular e atualizar o total
+    function atualizarTotal(preco, quantidade) {
+        const precoNumerico = parseFloat(preco.replace('R$', '').replace(',', '.').trim()); // Remove 'R$', vírgula e converte para número
+        const totalAtual = parseFloat(totalSpan.textContent.replace('R$', '').replace(',', '.').trim()) || 0;
+
+        // Calcula o novo total
+        const totalFinal = totalAtual + (precoNumerico * quantidade);
+        totalSpan.textContent = `R$ ${totalFinal.toFixed(2).replace('.', ',')}`;
+    }
+
+    // Função para gerar o comprovante
     function gerarComprovante() {
-        const pedidosCarrinho = document.querySelectorAll('.item-carrinho'); // Pega os itens dentro do carrinho
+        if (pedidos.length > 0) {
+            pedidos.forEach(pedido => {
+                // Cria a estrutura do recibo
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('order-item');
 
-        if (pedidosCarrinho.length > 0) {
-            pedidosCarrinho.forEach(item => {
-                adicionarItemAoRecibo(item); // Adiciona os itens ao recibo
+                const pratoSpan = document.createElement('span');
+                pratoSpan.textContent = pedido.nomePrato;
+
+                const quantidadeSpan = document.createElement('span');
+                quantidadeSpan.textContent = pedido.quantidade;
+
+                const precoSpan = document.createElement('span');
+                precoSpan.textContent = pedido.preco;
+
+                // Adiciona os spans à div do item
+                itemDiv.appendChild(pratoSpan);
+                itemDiv.appendChild(quantidadeSpan);
+                itemDiv.appendChild(precoSpan);
+
+                // Adiciona o item à div receipt
+                receiptDiv.querySelector('.order-info').appendChild(itemDiv);
             });
 
+            // Gera a imagem do comprovante
             html2canvas(comprovanteDiv).then((canvas) => {
                 const link = document.createElement("a");
                 link.href = canvas.toDataURL("image/png");
@@ -136,13 +139,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Chama a função para criar pedidos assim que a página carrega
-    criarPedidoPendentes();
-
     // Adiciona o evento de clique ao botão de gerar comprovante
     if (btnComprovante) {
-        btnComprovante.addEventListener('click', function() {
+        btnComprovante.addEventListener('click', function () {
             gerarComprovante(); // Gera o comprovante após adicionar os itens
         });
     }
+
+    // Chama a função para criar os pedidos assim que a página carrega
+    criarPedidoPendentes();
 });

@@ -87,7 +87,10 @@
         </div>
     </div>
     <!--====================================================== PARTE DO CARRINHO  =============================================-->
-    <div class="container-carrinho">
+    <div class="container-carrinho hidden" id="container-carrinho">
+        <div class="div-seta-voltar" id="div-seta-voltar">
+            <i class="fas fa-arrow-left icone-seta-voltar"></i>
+        </div>
         <h1 class="h1-parte-carrinho">Ordem de Pedidos</h1>
         <div class="container-pratos">
             <div id="carrinho" class="carrinho"></div>
@@ -167,6 +170,9 @@
     </div>
     <div class="input">
         <input type="text" id="input" class="input1" placeholder="Procure Pelo Prato desejado...">
+        <div class="div-carrinho" id="carrinho">
+            <i class="fas fa-shopping-cart icone-carrinho"></i>
+        </div>
         <div class="icon-pesquisa">
             <i class="fa-solid fa-magnifying-glass"></i>
         </div>
@@ -246,6 +252,7 @@
     <script src="/public/css,js/js/AdicionarCard.js"></script>
     <script src="/public/css,js/js/carrinho.js"></script>
     <script src="/public/css,js/js/alerta.js"></script>
+    <script src="/public/css,js/js/configsresposiveMobile.js"></script>
     <!-- BLIBLIOTECA SRCOLLREVEAL -->
     <script src="https://unpkg.com/scrollreveal"></script>
     <!-- PARTE DO BOOTSTRAP -->

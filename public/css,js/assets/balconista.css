@@ -842,7 +842,7 @@ main {
     position: absolute;
     font-size: 0.8rem;
     color: var(--cor-da-fonte);
-    transform: translate(62rem, 0.4rem);
+    transform: translate(59rem, 0.4rem);
 }
 
 .p-mesas {

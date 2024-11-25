@@ -163,7 +163,9 @@ hr {
     border-radius: 20px;
     transform: translate(1.7rem, 4rem);
 }
-
+.div-carrinho, .div-seta-voltar{
+    display: none;
+}
 .swiper {
     height: 100%;
     z-index: 0;
@@ -260,9 +262,8 @@ hr {
     height: 850px;
     transform: translateX(0.5rem);
     background-color: white;
-    z-index: 1}
-
-
+    z-index: 1
+}
 
 .container-pratos {
     overflow-x: auto;
@@ -452,19 +453,20 @@ span.span {
 i:hover {
     color: white;
 }
-.payment-options button.selected:hover, 
+
+.payment-options button.selected:hover,
 .payment-options button.selected i:hover {
     background-color: #ffb700;
     color: white;
 }
 
-.payment-options button:hover, 
+.payment-options button:hover,
 .payment-options button i:hover {
     background-color: #f0f0f0;
     color: black;
 }
 
-.payment-options button.selected, 
+.payment-options button.selected,
 .payment-options button.selected i {
     background-color: #ffb700;
     color: white;
@@ -565,7 +567,7 @@ i:hover {
     border-radius: 0.375rem;
     border: none;
     transform: translate(22rem, -37rem);
-    font-size: 35px; 
+    font-size: 35px;
 
 }
 
@@ -581,20 +583,25 @@ button.success.success-button-secondary {
 .icone-pagamneto-ip {
     width: 10%;
     height: auto;
-    transform: translate(-0.5rem,-32.5rem);
+    transform: translate(-0.5rem, -32.5rem);
 }
-.success-prompt-heading, .success-prompt-prompt{
+
+.success-prompt-heading,
+.success-prompt-prompt {
     transform: translate(0rem, 4rem)
 }
-.h3-parte-ava{
+
+.h3-parte-ava {
     transform: translateY(4rem);
 }
-.nomes{
+
+.nomes {
     display: flex;
     flex-direction: row;
     gap: 3rem;
     transform: translate(2rem, 5rem);
 }
+
 .input-nomes {
     width: 20rem;
     height: 3rem;
@@ -620,6 +627,7 @@ button.success.success-button-secondary {
 .input-nomes:focus::placeholder {
     color: #ffb700;
 }
+
 textarea {
     width: 90%;
     margin-left: -0.9rem;
@@ -648,54 +656,58 @@ textarea::placeholder {
 textarea:focus::placeholder {
     color: #ffb700;
 }
+
 .input-icons {
     display: flex;
     gap: 10px;
     margin-left: 15rem;
     margin-top: 1rem;
     transform: translateY(-1rem);
-  }
-  
-  .input-icons input[type="radio"] {
+}
+
+.input-icons input[type="radio"] {
     display: none;
-  }
-  
-  .input-icons label {
+}
+
+.input-icons label {
     cursor: pointer;
     display: inline-block;
-  }
-  
-  .input-icons svg {
+}
+
+.input-icons svg {
     width: 50px;
     height: 50px;
     fill: #ccc;
     transition: fill 0.3s ease;
-  }
-  
-  .input-icons input[type="radio"]:checked ~ label svg {
+}
+
+.input-icons input[type="radio"]:checked~label svg {
     fill: #ffeb3b;
-  }
-  
-  .input-icons label:hover svg {
+}
+
+.input-icons label:hover svg {
     fill: gold;
-  }
-  
-  .input-icons input[type="radio"]:checked ~ label svg,
-  .input-icons input[type="radio"]:checked ~ label svg ~ label svg {
+}
+
+.input-icons input[type="radio"]:checked~label svg,
+.input-icons input[type="radio"]:checked~label svg~label svg {
     fill: #ffeb3b;
-  }
-  .btn-avaliacao{
+}
+
+.btn-avaliacao {
     height: 2.5rem;
     background-color: #ffb700;
     border-radius: 20px;
     border: none;
     color: white;
     font-size: 1.5rem;
-    transition: background-color 0.3s ease; 
-  }
-  .btn-avaliacao:hover{
+    transition: background-color 0.3s ease;
+}
+
+.btn-avaliacao:hover {
     background-color: #ff9900;
-  }
+}
+
 /* ======================================================================================      PARTE DA CATEGORIA      ============================================================================================ */
 .container-categorias {
     width: 70rem;
@@ -768,35 +780,49 @@ textarea:focus::placeholder {
     display: flex;
     flex-wrap: wrap;
     position: relative;
-    height: 100%;  
-    max-height: 40rem;  
+    height: 100%;
+    max-height: 40rem;
     width: 76rem;
     margin-left: 0.5rem;
     top: 1.5rem;
 }
 
-.h1-do-menu, .h1-da-bebida, .h1-da-promocao, .h1-de-doces, .h1-de-favorito{
+.h1-do-menu,
+.h1-da-bebida,
+.h1-da-promocao,
+.h1-de-doces,
+.h1-de-favorito {
     margin-left: 2rem;
     margin-top: 1rem;
 }
-.h1-do-menu> span, .h1-da-bebida>span, .h1-da-promocao>span, .h1-de-doces>span, .h1-de-favorito>span {
+
+.h1-do-menu>span,
+.h1-da-bebida>span,
+.h1-da-promocao>span,
+.h1-de-doces>span,
+.h1-de-favorito>span {
     color: #fba900;
 }
-.h1-da-bebida{
+
+.h1-da-bebida {
     margin-bottom: -17rem;
     transform: translateY(-4rem);
 }
-.h1-da-promocao{
+
+.h1-da-promocao {
     margin-bottom: 40rem;
     transform: translateY(-1rem);
-    
+
 }
-.h1-de-doces{
+
+.h1-de-doces {
     transform: translateY(-20rem);
 }
-.h1-de-favorito{
+
+.h1-de-favorito {
     transform: translateY(-10rem);
 }
+
 /* PARTE DOS CARDS  */
 .card {
     position: relative;
@@ -1033,7 +1059,104 @@ button {
     width: 110px;
 }
 
-/*===================================== PARTE DO CONTAINER BEBIDAS ==============================================*/
-.container-bebidas{
+/*===================================== PARTE DO CONTAINER BEBIDAS =====================================*/
+.container-bebidas {
     margin-top: 20rem;
+}
+
+/*=====================================PARTE RESPONSIVIDADE =====================================*/
+@media (max-width: 768px) {
+    body{
+        overflow-x: hidden;
+    }
+    html{
+        overflow-x: hidden;
+    }
+    .container-carrinho{
+        display: none;
+        width: 27rem;
+        z-index: 20;
+    }
+    .h1-parte-carrinho{
+        margin-left: 5rem;
+    }
+    .div-seta-voltar{
+        display: block;
+        position: absolute;
+        margin-top: 1rem;
+        cursor: pointer;
+        width: 3rem;
+        height: 3rem;
+        background-color: #aaa;
+        border-radius: 50%;
+    }
+    .icone-seta-voltar{
+        font-size: 1.5rem;
+        transform: translate(0.9rem, 0.7rem);
+    }
+    .img-perfil{
+        width: 4rem;
+    }
+    .parte-info-main{
+        position: relative;
+        left: 3rem;
+    }
+    .h4-parte-conta{
+        position: relative;
+        left: 1rem;
+        top: -0.5rem;
+    }
+    .p-parte-conta{
+        position: relative;
+        left: 1rem;
+        top: -0.5rem;
+    }
+    hr{
+        position: relative;
+        left: 0.5rem;
+        top: -0.5rem;
+        width: 2.5rem;
+    }
+    .promocao{
+        position: relative;
+        top: -3rem;
+        width: 30rem;
+    }
+    .parte-navigation{
+        position: relative;
+        transform: translateX(2rem);
+    }
+    .input1{
+        margin-top: -0.5rem;
+        margin-left: 1rem;
+        width: 25rem;
+    }
+    .container-categorias{
+        display: none;
+    }
+    .container-menu{
+        margin-top: 10rem;
+    }
+    .div-carrinho{
+        display: block;
+        cursor: pointer;
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        background-color: white;
+        margin-left: 23rem;
+        text-align: center;
+        transform: translateY(4.5rem);
+        z-index: 10;
+    }
+    .icone-carrinho{
+        color: #000;
+        transform: translateY(0.2rem);
+        margin-left: -0.1rem;
+    }
+    .icone-carrinho:hover{
+        color: #000;
+    }
+
 }

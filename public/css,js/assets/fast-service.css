@@ -184,10 +184,10 @@
 
     /*============================================================================== ESTILIZAÇÃO CONTAINER PRINCIPAL ======================================================================== */
     .imagem-fundo {
-        width: 1500px;
-        margin-left: 3rem;
+        width: 1000px;
+        margin-left: 5rem;
         transform: translateX(-50rem);
-        margin-top: 35.4rem;
+        margin-top: 30rem;
         z-index: 0;
     }
 

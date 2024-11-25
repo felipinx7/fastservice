@@ -137,7 +137,7 @@ pendentes.addEventListener('click', function(event) {
             element.style.position = "absolute";
             element.style.fontSize = "0.8rem";
             element.style.color = "var(--cor-da-fonte)";
-            element.style.transform = "translate(46rem, 0.4rem)";
+            element.style.transform = "translate(43rem, 0.4rem)";
             element.style.transition = "all 0.3s ease";
         });
     } else {
