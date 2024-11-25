@@ -1,10 +1,32 @@
 function gerarAvaliacaoAleatoria() {
-    return (Math.random() * (5 - 3) + 3).toFixed(1);  // Gera um número entre 3 e 5 com uma casa decimal
+    return (Math.random() * (5 - 4) + 4).toFixed(1); 
 }
 
+// Função para adicionar o card do prato no container correto
 function adicionarCard(prato) {
-    const container = document.getElementById("container-pratos-menu");
+    let container;
+    
+    // Verifica a categoria do prato e define o container correspondente usando classes
+    switch (prato.categoria) {
+        case 'bebidas':
+            container = document.querySelector('.container-parte-bebidas');
+            break;
+        case 'promoçoes':
+            container = document.querySelector('.container-parte-promocao');
+            break;
+        case 'doces':
+            container = document.querySelector('.container-doces');
+            break;
+        case 'favorito':
+            container = document.querySelector('.container-parte-favorito');
+            break;
+        case 'principal':
+        default:
+            container = document.querySelector('.container-pratos-menu');
+            break;
+    }
 
+    // Criação do card
     const mudarLugar = document.createElement('div');
     mudarLugar.className = 'mudar-lugar1';
 
@@ -118,12 +140,21 @@ function adicionarCard(prato) {
     container.appendChild(mudarLugar);
 }
 
-// Função para carregar pratos cadastrados da API
+// Função para carregar pratos cadastrados da API e gerar a array com os pratos
 function carregarPratos() {
     fetch('/pratos-cadastrados')
         .then(response => response.json())
         .then(pratos => {
-            pratos.forEach(adicionarCard); // Para cada prato, adicionamos ao cardápio
+            // Criar uma array com objetos contendo nome, preco, foto e categoria de cada prato
+            const pratosArray = pratos.map(prato => ({
+                nome: prato.nome,
+                preco: prato.preco,
+                foto: prato.foto,
+                categoria: prato.categoria
+            }));
+
+            // Exibir os pratos nos containers correspondentes
+            pratosArray.forEach(adicionarCard); // Para cada prato, adicionamos ao cardápio
         })
         .catch(error => {
             console.error('Erro ao carregar pratos:', error);

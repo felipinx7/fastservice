@@ -656,7 +656,6 @@ textarea::placeholder {
 textarea:focus::placeholder {
     color: #ffb700;
 }
-
 .input-icons {
     display: flex;
     gap: 10px;
@@ -681,18 +680,14 @@ textarea:focus::placeholder {
     transition: fill 0.3s ease;
 }
 
-.input-icons input[type="radio"]:checked~label svg {
-    fill: #ffeb3b;
+.input-icons .selected svg {
+    fill: #ffeb3b; /* Cor para as estrelas selecionadas */
 }
 
-.input-icons label:hover svg {
-    fill: gold;
+.input-icons .highlighted svg {
+    fill: gold; /* Cor para o hover */
 }
 
-.input-icons input[type="radio"]:checked~label svg,
-.input-icons input[type="radio"]:checked~label svg~label svg {
-    fill: #ffeb3b;
-}
 
 .btn-avaliacao {
     height: 2.5rem;
@@ -786,7 +781,51 @@ textarea:focus::placeholder {
     margin-left: 0.5rem;
     top: 1.5rem;
 }
-
+.container-parte-bebidas{
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    height: 100%;
+    max-height: 40rem;
+    width: 76rem;
+    margin-left: 0.5rem;
+    top: 1.5rem;
+}
+.container-parte-promocao{
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    height: 100%;
+    max-height: 40rem;
+    width: 76rem;
+    margin-left: 0.5rem;
+    top: -38rem;   
+}
+.container-doces{
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    height: 100%;
+    max-height: 40rem;
+    width: 76rem;
+    margin-left: 0.5rem;
+    top: 1.5rem;  
+    margin-top: -21rem;  
+}
+.container-parte-favorito{
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    height: 100%;
+    max-height: 40rem;
+    width: 76rem;
+    margin-left: 0.5rem;
+    top: 1.5rem;    
+}
 .h1-do-menu,
 .h1-da-bebida,
 .h1-da-promocao,
@@ -806,12 +845,12 @@ textarea:focus::placeholder {
 
 .h1-da-bebida {
     margin-bottom: -17rem;
-    transform: translateY(-4rem);
+    transform: translateY(-17rem);
 }
 
 .h1-da-promocao {
     margin-bottom: 40rem;
-    transform: translateY(-1rem);
+    transform: translateY(1rem);
 
 }
 
@@ -820,7 +859,7 @@ textarea:focus::placeholder {
 }
 
 .h1-de-favorito {
-    transform: translateY(-10rem);
+    transform: translateY(3rem);
 }
 
 /* PARTE DOS CARDS  */
