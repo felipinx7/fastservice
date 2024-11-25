@@ -15,24 +15,6 @@ const swiperPromocao = new Swiper('.banner-promocao', {
     },
 });
 
-// PARTE DA PESQUISA DO INPUT
-const inputCampo = document.getElementById('input');
-const cardIds = document.querySelectorAll('.card');
-
-// SELECIONA TODOS OS ELEMENTOS PELOS IDS
-const cardsTodos = cardIds.map(id => document.getElementById(id));
-
-inputCampo.addEventListener('input', function() {
-    const filter = this.value.toLowerCase();
-    const slides = document.querySelectorAll('.card');
-    slides.forEach(slide => {
-        const isPromocao = slide.closest('.promocao');
-        if (!isPromocao) {
-            const title = slide.querySelector('.card-title') ? slide.querySelector('.card-title').textContent.toLowerCase() : '';
-            slide.style.display = title.includes(filter) ? '' : 'none'; 
-        }
-    });
-});
 // PARTE DOS BOTÕES DO PEDIDO
 function hideButton(button) {
     button.style.display = 'none'; 
@@ -93,3 +75,16 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+function filterCards() {
+    const input = document.getElementById('input1').value.toLowerCase();
+    const cards = document.querySelectorAll('.card');
+    
+    cards.forEach(card => {
+        const title = card.querySelector('.card-title').textContent.toLowerCase();
+        if (title.includes(input)) {
+            card.style.display = 'block'; // Exibe o card
+        } else {
+            card.style.display = 'none'; // Oculta o card
+        }
+    });
+}
