@@ -523,6 +523,7 @@ main {
     pointer-events: none;
 }
 
+
 .receipt {
     display: none;
     position: absolute;
@@ -799,6 +800,7 @@ main {
     height: 5rem;
     transform: translate(9rem, 0rem);
     margin-top: 1rem;
+    z-index: 20;
 }
 
 .pedidos-processo {
@@ -1478,10 +1480,30 @@ button:hover {
     margin-left: 13rem;
     transform: translateY(-1.7rem);
 }
-.label-mesa{
-    margin-top: 0.7rem;
+.label-mesa, .numero-mesa-comprovante{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    align-items: center;
+    text-align: center;
 }
-
+.label-mesa{
+    margin-left: 10rem;
+    padding-top: 1rem;
+    transform: translateY(-1rem);
+}
+.metodo-pagamento, .tipo-de-pagamento-comprovante{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    align-items: center;
+    text-align: center;
+}
+.metodo-pagamento{
+    margin-left: 5rem;
+    margin-top: -0.5rem;
+    transform: translateY(-0.7rem);
+}
 .pedidos-carrinho {
     display: flex;
     flex-direction: column;
@@ -1564,6 +1586,7 @@ button:hover {
     top: -1.2rem;
     left: 0.4rem;
     white-space: nowrap;
+    z-index: 2;
 }
 
 .h4-preco-carrinho {
@@ -1571,14 +1594,16 @@ button:hover {
     flex-direction: column;
     gap: 2rem;
     color: #fba800;
-    margin-left: -6.4rem;
+    margin-left: -7.5rem;
     align-items: center;
+    z-index: 0;
 }
 
 .h4-qtd-carrinho {
     white-space: nowrap;
     position: relative;
-    left: -4.2rem;
+    left: -4rem;
+    z-index: 1;
     top: 1.4rem;
     color: black;
 }
