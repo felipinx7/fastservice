@@ -113,11 +113,11 @@
 
     .btn-login {
         cursor: pointer;
-        width: 19rem;
+        width: 18rem;
         height: 2.5rem;
         font-size: large;
-        transform: translateY(-38rem);
-        margin-left: -43rem;
+        transform: translateY(-39.3rem);
+        margin-left: -41.4rem;
         border-radius: 20px 10.48px 20px 10.48px;
         border: none;
         background-color: #ff9900;
@@ -208,13 +208,13 @@
         position: relative;
         z-index: 1;
         color: #ffba3a;
-        transform: translate(-29rem, -28rem);
+        transform: translate(-28rem, -26rem);
         animation: entrada 1s ease-out 0.2s forwards;
     }
-
     .insta-fast {
         position: relative;
-        font-size: 20px;
+        font-size: 1rem;
+        font-weight: 400;
         color: black;
         right: 18rem;
         z-index: 1;
@@ -230,7 +230,8 @@
         white-space: nowrap;
         font-size: 2rem;
         font-weight: 620;
-        margin-bottom: 20px;
+        margin-bottom: 21px;
+        line-height: 1.2;
         transform: translateX(-13.5rem);
     }
 
@@ -251,11 +252,11 @@
     .texto-informativo {
         position: relative;
         font-size: 1rem;
-        margin-top: -1.5rem;
+        margin-top: -1rem;
         white-space: nowrap;
         z-index: 1;
         font-weight: 550;
-        transform: translateX(-13rem);
+        transform: translateX(-13.3rem);
         text-align: left;
         color: black;
     }
@@ -277,7 +278,7 @@
         rotate: 90deg;
         margin-left: -750px;
         animation: flutu 7s ease infinite;
-        margin-top: 6rem;
+        margin-top: 8.5rem;
         cursor: pointer;
         color: black;
     }
@@ -383,16 +384,16 @@
         height: 55vh;
         display: flex;
         background-color: white;
-        margin-top: -540px;
+        margin-top: -450px;
         margin-left: -30px;
     }
 
     .div-cards-funcionalidades {
         display: flex;
-
+        align-items: center;
         justify-content: center;
         justify-content: space-between;
-        transform: translate(-36rem, 2rem);
+        transform: translate(10rem, -1rem);
     }
 
     .card-funcionalidade-1 {
