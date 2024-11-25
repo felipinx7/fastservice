@@ -119,46 +119,41 @@
         </div>
 
         <!-- PARTE DO COMPROVANTE  -->
-        <div class="receipt" id="comprovante">
-            <div class="logo">
-                <img src="/public/css,js/img/fast-service.png" class="img" alt="Logo Fast Service">
-            </div>
+       <div class="receipt" id="comprovante">
+    <div class="logo">
+        <img src="/public/css,js/img/fast-service.png" class="img" alt="Logo Fast Service">
+    </div>
 
-            <!-- Informações do Pedido -->
-            <div class="order-info">
-                <h3>Comprovante de Pedido</h3>
+    <div class="order-info">
+        <h3>Comprovante de Pedido</h3>
 
-                <!-- Número da mesa -->
-                <div class="table-number">
-                    Mesa: <span id="numeroMesa">12</span> <!-- Aqui você pode alterar o número da mesa -->
-                </div>
-
-                <!-- Método de pagamento -->
-                <div class="payment-method">
-                    Método de pagamento: <span id="metodoPagamento">Cartão de Crédito</span>
-                </div>
-
-                <!-- Cabeçalho dos itens -->
-                <div class="order-item">
-                    <span>Nome do Pedido</span>
-                    <span>Quantidade</span>
-                    <span>Preço</span>
-                </div>
-
-                <!-- Itens do Pedido -->
-
-
-            </div>
-            <!-- Total -->
-            <div class="order-total">
-                <span>Total</span>
-                <span>R$ 00,00</span>
-            </div>
-            <!-- Texto no rodapé -->
-            <div class="footer-text">
-                Obrigado pela preferência!
-            </div>
+        <div class="table-number">
+            Mesa: <span id="numeroMesa">12</span>
         </div>
+
+        <div class="payment-method">
+            Método de pagamento: <span id="metodoPagamento">Cartão de Crédito</span>
+        </div>
+
+        <div class="order-item order-item-header">
+            <span>Nome do Pedido</span>
+            <span>Quantidade</span>
+            <span>Preço</span>
+        </div>
+
+        <!-- Itens serão inseridos aqui -->
+    </div>
+
+    <div class="order-total">
+        <span>Total</span>
+        <span>R$ 00,00</span>
+    </div>
+
+    <div class="footer-text">
+        Obrigado pela preferência!
+    </div>
+</div>
+
 
         <!-- PARTE DO CARRINHO -->
         <div class="container-carrinho" id="comprovanteArea">
@@ -176,7 +171,7 @@
                 <p>Desconto <span>-R$00,0</span></p>
                 <p class="total">Valor Total <span class="totaltudo">R$00,0</span></p>
             </div>
-            <button class="btn-carrinho gerar" onclick="gerarComprovante()">Gerar Comprovante</button>
+            <button class="btn-carrinho gerar" id="gerarComprovante">Gerar Comprovante</button>
         </div>
 
         <div class="div-pedidos">
@@ -184,151 +179,6 @@
                 <img src="/public/css,js/img/banner-dasckboard.png" class="img-banner" alt="">
             </div>
             <div class="container" id="pendentes">
-                <!-- <div class="pedidos">
-                    <h1 class="h1-blaconista h1">Método pagamento: Pix</h1>
-                    <p class="p-horas">00:00 PM</p>
-                    <p class="p-mesas">Mesa: M2</p>
-                    <p class="p-qtd">Quantidade: 5</p>
-                    <p class="p-preco-total">R$: 50,00</p>
-                    <button class="bnt-aceitar">
-                        <div class="texto-bnt">Aceitar</div>
-                    </button>
-                    <button class="bnt-remover remover">
-                        <div class="texto-bnt">Remover</div>
-                    </button>
-                    <button class="bnt-remover-item item">
-                        <div class="texto-bnt">Remover Item</div>
-                    </button>
-                </div>
-                <div class="pedidos">
-                    <h1 class="h1-blaconista h1">Método pagamento: Pix</h1>
-                    <p class="p-horas">00:00 PM</p>
-                    <p class="p-mesas">Mesa: M2</p>
-                    <p class="p-qtd">Quantidade: 5</p>
-                    <p class="p-preco-total">R$: 50,00</p>
-                    <button class="bnt-aceitar">
-                        <div class="texto-bnt">Aceitar</div>
-                    </button>
-                    <button class="bnt-remover remover">
-                        <div class="texto-bnt">Remover</div>
-                    </button>
-                    <button class="bnt-remover-item item">
-                        <div class="texto-bnt">Remover Item</div>
-                    </button>
-                </div>
-                <div class="pedidos">
-                    <h1 class="h1-blaconista h1">Método pagamento: Pix</h1>
-                    <p class="p-horas">00:00 PM</p>
-                    <p class="p-mesas">Mesa: M2</p>
-                    <p class="p-qtd">Quantidade: 5</p>
-                    <p class="p-preco-total">R$: 50,00</p>
-                    <button class="bnt-aceitar">
-                        <div class="texto-bnt">Aceitar</div>
-                    </button>
-                    <button class="bnt-remover remover">
-                        <div class="texto-bnt">Remover</div>
-                    </button>
-                    <button class="bnt-remover-item item">
-                        <div class="texto-bnt">Remover Item</div>
-                    </button>
-                </div>
-                <div class="pedidos">
-                    <h1 class="h1-blaconista h1">Método pagamento: Pix</h1>
-                    <p class="p-horas">00:00 PM</p>
-                    <p class="p-mesas">Mesa: M2</p>
-                    <p class="p-qtd">Quantidade: 5</p>
-                    <p class="p-preco-total">R$: 50,00</p>
-                    <button class="bnt-aceitar">
-                        <div class="texto-bnt">Aceitar</div>
-                    </button>
-                    <button class="bnt-remover remover">
-                        <div class="texto-bnt">Remover</div>
-                    </button>
-                    <button class="bnt-remover-item item">
-                        <div class="texto-bnt">Remover Item</div>
-                    </button>
-                </div>
-                <div class="pedidos">
-                    <h1 class="h1-blaconista h1">Método pagamento: Pix</h1>
-                    <p class="p-horas">00:00 PM</p>
-                    <p class="p-mesas">Mesa: M2</p>
-                    <p class="p-qtd">Quantidade: 5</p>
-                    <p class="p-preco-total">R$: 50,00</p>
-                    <button class="bnt-aceitar">
-                        <div class="texto-bnt">Aceitar</div>
-                    </button>
-                    <button class="bnt-remover remover">
-                        <div class="texto-bnt">Remover</div>
-                    </button>
-                    <button class="bnt-remover-item item">
-                        <div class="texto-bnt">Remover Item</div>
-                    </button>
-                </div>
-                <div class="pedidos">
-                    <h1 class="h1-blaconista h1">Método pagamento: Pix</h1>
-                    <p class="p-horas">00:00 PM</p>
-                    <p class="p-mesas">Mesa: M2</p>
-                    <p class="p-qtd">Quantidade: 5</p>
-                    <p class="p-preco-total">R$: 50,00</p>
-                    <button class="bnt-aceitar">
-                        <div class="texto-bnt remover">Aceitar</div>
-                    </button>
-                    <button class="bnt-remover remover">
-                        <div class="texto-bnt">Remover</div>
-                    </button>
-                    <button class="bnt-remover-item item">
-                        <div class="texto-bnt">Remover Item</div>
-                    </button>
-                </div>
-                <div class="pedidos">
-                    <h1 class="h1-blaconista h1">Método pagamento: Pix</h1>
-                    <p class="p-horas">00:00 PM</p>
-                    <p class="p-mesas">Mesa: M2</p>
-                    <p class="p-qtd">Quantidade: 5</p>
-                    <p class="p-preco-total">R$: 50,00</p>
-                    <button class="bnt-aceitar">
-                        <div class="texto-bnt remover">Aceitar</div>
-                    </button>
-                    <button class="bnt-remover remover">
-                        <div class="texto-bnt">Remover</div>
-                    </button>
-                    <button class="bnt-remover-item item">
-                        <div class="texto-bnt">Remover Item</div>
-                    </button>
-                </div>
-                <div class="pedidos">
-                    <h1 class="h1-blaconista h1">Método pagamento: Pix</h1>
-                    <p class="p-horas">00:00 PM</p>
-                    <p class="p-mesas">Mesa: M2</p>
-                    <p class="p-qtd">Quantidade: 5</p>
-                    <p class="p-preco-total">R$: 50,00</p>
-                    <button class="bnt-aceitar">
-                        <div class="texto-bnt remover">Aceitar</div>
-                    </button>
-                    <button class="bnt-remover remover">
-                        <div class="texto-bnt">Remover</div>
-                    </button>
-                    <button class="bnt-remover-item item">
-                        <div class="texto-bnt">Remover Item</div>
-                    </button>
-                </div>
-                <div class="pedidos">
-                    <h1 class="h1-blaconista h1">Método pagamento: Pix</h1>
-                    <p class="p-horas">00:00 PM</p>
-                    <p class="p-mesas">Mesa: M2</p>
-                    <p class="p-qtd">Quantidade: 5</p>
-                    <p class="p-preco-total">R$: 50,00</p>
-                    <button class="bnt-aceitar">
-                        <div class="texto-bnt">Aceitar</div>
-                    </button>
-                    <button class="bnt-remover remover">
-                        <div class="texto-bnt">Remover</div>
-                    </button>
-                    <button class="bnt-remover-item item">
-                        <div class="texto-bnt">Remover Item</div>
-                    </button>
-                </div> -->
-
             </div>
             <div class="div-pedidos2">
                 <div class="container" id="processo">

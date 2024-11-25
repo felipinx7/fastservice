@@ -525,7 +525,6 @@ main {
 
 
 .receipt {
-    display: none;
     position: absolute;
     z-index: 30;
     margin-left: 30rem;
@@ -535,6 +534,7 @@ main {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
+    margin-top: 40rem;
 }
 
 /* Logo */
@@ -1587,6 +1587,10 @@ button:hover {
     left: 0.4rem;
     white-space: nowrap;
     z-index: 2;
+}
+.quantidade-comprovante{
+    position: absolute;
+    margin-left: 13.5rem;
 }
 
 .h4-preco-carrinho {
