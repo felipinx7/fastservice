@@ -265,7 +265,7 @@ hr {
     height: 850px;
     transform: translateX(0.5rem);
     background-color: white;
-    z-index: 1
+    z-index: 1;
 }
 
 .container-pratos {
@@ -1131,15 +1131,49 @@ button {
         position: absolute;
         width: 100%;
         height: 100%;
-        display: block;
-        z-index: 2;
+        display: none;
+        transition: all 0.3s;
+        z-index: 3;
     }
 
     .img-perfil {
         margin-left: -2.9rem;
         width: 4rem;
     }
+    .container-contador{
+        transform: translateX(0.2rem);
+        width: 13rem;
+    }
 
+    .botao-confirmar{
+        transform: translateX(2rem);
+        margin-left: 9rem;
+    }
+    .prato-add{
+        width: 35rem;
+    }
+    .btn-remover{
+        width: 8rem;
+        margin-left: 10rem;
+        font-size: 1.2rem;
+    }
+    .name-prato p{
+        font-size: 1.3rem;
+        margin-left: 4.5rem;
+        margin-top: -3rem;
+    }
+    .precoprato{
+        font-size: 1.4rem;
+        margin-left: 1rem;
+    }
+    .p-price{
+        font-size: 1.2rem;
+        margin-top: 3rem;
+        margin-left: 7rem;
+    }
+    .botao-mais{
+        transform: translateX(1rem);
+    }
     .parte-info-main {
         position: relative;
         left: 3rem;
@@ -1188,12 +1222,39 @@ button {
         border-radius: 50%;
         background-color: white;
         margin-left: 32rem;
-        z-index: 1;
-        margin-top: 1.7rem;
+        z-index: 2;
+        margin-top: 1.9rem;
+    }
+    .div-carrinho:hover{
+        background-color: #f0f0f0;
+    }
+    .div-seta-voltar{
+        width: 3rem;
+        height: 3rem;
+        background-color: #aaa;
+        border-radius: 50%;
+        display: block;
+        position: absolute;
+        z-index: 10;
+        margin-top: 2.3rem;
+        margin-left: 1rem;
+    }
+    .icone-pagamentos{
+        font-size: 3rem;
+    }
+    .butao-parte--carrinho,
+    .icone-seta-voltar{
+        font-size: 2rem;
+        transform: translate(0.5rem,0.5rem);
+    }
+    .div-seta-voltar:hover, .icone-seta-voltar:hover{
+        color: black;
+        background-color: #ccc;
     }
     .h1-parte-carrinho{
-        text-align: center;
+        font-size: 2.3rem;
         padding-top: 2rem;
+        margin-left: 7.5rem;
     }
     .finalizar{
         width: 32rem;
@@ -1220,13 +1281,15 @@ button {
     }
     .butao-parte--carrinho{
         width: 3rem;
-        font-size: 2rem;
+        font-size: 3rem;
         height: 3rem;
+        margin-left: 0.4rem;
+        transform: translateY(-0.5rem);
     }
     .fa-credit-card, 
     .fa-money-bill-wave,
     .fa-pix{
-        font-size: 3rem;
+        font-size: 2.5rem !important;
     }
     .texto-botao2{
         font-size: 1.7rem;
@@ -1314,5 +1377,21 @@ button {
         line-height: 10px;
         transform: translate(-30rem, -4rem);
         margin-top: 0.5rem;
+    }
+    .paragrafo-sumary{
+        font-size: 1.4rem !important;
+    }
+    .success{
+        width: 33rem;
+        height: 60rem;
+        margin-left: -17rem;
+    }
+    
+    .icone-pagamneto-ip{
+        width: 5rem;
+        transform: translateY(-37rem);
+    }
+    .success-prompt-heading{
+
     }
 }

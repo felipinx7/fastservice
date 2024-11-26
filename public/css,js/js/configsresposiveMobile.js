@@ -1,22 +1,20 @@
+// Esperar o DOM ser completamente carregado
 document.addEventListener('DOMContentLoaded', () => {
-    const carrinhoBtn = document.getElementById('carrinho');
-    const containerCarrinho = document.getElementById('container');
-    const setaVoltar = document.getElementById('seta-voltar');
-  
-    if (!carrinhoBtn || !containerCarrinho || !setaVoltar) {
-      console.error('Um ou mais elementos não foram encontrados no DOM.');
-      return;
-    }
-  
-    // Teste para verificar se o evento está funcionando
-    carrinhoBtn.addEventListener('click', () => {
-      console.log('Carrinho aberto');
-      containerCarrinho.style.display = 'block';  // Força a exibição com estilo inline
-    });
-  
-    setaVoltar.addEventListener('click', () => {
-      console.log('Carrinho fechado');
-      containerCarrinho.style.display = 'none';  // Força o ocultamento com estilo inline
-    });
+  // Selecionar os elementos
+  const divSetaVoltar = document.getElementById('div-seta-voltar');
+  const carrinho = document.getElementById('div-carrinho');
+  const containerCarrinho = document.getElementById('container-container-carrinho');
+
+  // Verificar se os elementos existem
+  console.log(divSetaVoltar, carrinho, containerCarrinho);
+
+  // Esconder a div do carrinho ao clicar na seta voltar
+  divSetaVoltar.addEventListener('click', () => {
+    containerCarrinho.style.display = 'none'; // Esconde o carrinho
   });
-  
+
+  // Mostrar a div do carrinho ao clicar no ícone do carrinho
+  carrinho.addEventListener('click', () => {
+    containerCarrinho.style.display = 'block'; // Mostra o carrinho
+  });
+});
