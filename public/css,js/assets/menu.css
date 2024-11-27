@@ -1383,15 +1383,35 @@ button {
     }
     .success{
         width: 33rem;
-        height: 60rem;
+        height: 45rem;
         margin-left: -17rem;
     }
     
     .icone-pagamneto-ip{
         width: 5rem;
-        transform: translateY(-37rem);
+        transform: translateY(-42rem);
     }
+    .icone-seta-voltar:hover
     .success-prompt-heading{
-
+        line-height: 1;
+        margin-top: 1rem;
     }
+    .success-button-secondary{
+        transform: translate(14rem,-48rem);
+    }
+
+    .h3-parte-ava{
+        margin-top: 1rem;
+    }
+    .nomes{
+        display: flex;
+        flex-direction: column;
+        transform: translate(6rem, 5rem);
+        gap: 1rem;
+    }
+    .input-icons{
+        margin-left: 7rem;
+        transform: translateY(-0.5rem);
+    }
+
 }
