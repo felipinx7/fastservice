@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // { nomePrato: "Salada Vegana", quantidade: 4, preco: "R$32,00", mesa: "M2", metodoPagamento: "Pix", imagem: "/public/css,js/img/prato-2.png" },
             
             // // Mesa 3
-            // { nomePrato: "Salada Vegana", quantidade: 4, preco: "R$32,00", mesa: "M3", metodoPagamento: "Pix", imagem: "/public/css,js/img/prato-2.png" },
+            // { nomePrato: "Salada Vegana", quantidade: 4, preco: "R$32,00", mesa:npm "M3", metodoPagamento: "Pix", imagem: "/public/css,js/img/prato-2.png" },
             // { nomePrato: "Salada Vegana", quantidade: 4, preco: "R$32,00", mesa: "M3", metodoPagamento: "Pix", imagem: "/public/css,js/img/prato-2.png" },
             // { nomePrato: "Salada Vegana", quantidade: 4, preco: "R$32,00", mesa: "M3", metodoPagamento: "Pix", imagem: "/public/css,js/img/prato-2.png" },
             // { nomePrato: "Salada Vegana", quantidade: 4, preco: "R$32,00", mesa: "M3", metodoPagamento: "Pix", imagem: "/public/css,js/img/prato-2.png" },
