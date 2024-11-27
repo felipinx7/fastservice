@@ -9,39 +9,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Array de objetos que armazena as informações dos pedidos
     const pedidos = [
-        {
-            nomePrato: "Salada Vegana",
-            quantidade: 4,
-            preco: "R$32,00",
-            mesa: "M4",
-            metodoPagamento: "Pix",
-            imagem: "/public/css,js/img/prato-2.png"
-        },
-        {
-            nomePrato: "Frango Grelhado",
-            quantidade: 2,
-            preco: "R$25,00",
-            mesa: "M1",
-            metodoPagamento: "Dinheiro",
-            imagem: "/public/css,js/img/prato-2.png"
-        },
-        {
-            nomePrato: "Pizza Margherita",
-            quantidade: 1,
-            preco: "R$45,00",
-            mesa: "M3",
-            metodoPagamento: "Cartão",
-            imagem: "/public/css,js/img/prato-2.png"
-        },
-        {
-            nomePrato: "Bolo de Chocolate",
-            quantidade: 2,
-            preco: "R$15,00",
-            mesa: "M4",
-            metodoPagamento: "Pix",
-            imagem: "/public/css,js/img/prato-2.png"
-        }
-    ];
+            // // Mesa 1
+            // // { nomePrato: "Salada Vegana", quantidade: 4, preco: "R$32,00", mesa: "M1", metodoPagamento: "Pix", imagem: "/public/css,js/img/prato-2.png" },
+            // { nomePrato: "Salada Vegana", quantidade: 4, preco: "R$32,00", mesa: "M1", metodoPagamento: "Pix", imagem: "/public/css,js/img/prato-2.png" },
+            // { nomePrato: "Salada Vegana", quantidade: 4, preco: "R$32,00", mesa: "M1", metodoPagamento: "Pix", imagem: "/public/css,js/img/prato-2.png" },
+            // { nomePrato: "Salada Vegana", quantidade: 4, preco: "R$32,00", mesa: "M1", metodoPagamento: "Pix", imagem: "/public/css,js/img/prato-2.png" },
+            
+            // // Mesa 2
+            // { nomePrato: "Salada Vegana", quantidade: 4, preco: "R$32,00", mesa: "M2", metodoPagamento: "Pix", imagem: "/public/css,js/img/prato-2.png" },
+            // { nomePrato: "Salada Vegana", quantidade: 4, preco: "R$32,00", mesa: "M2", metodoPagamento: "Pix", imagem: "/public/css,js/img/prato-2.png" },
+            // { nomePrato: "Salada Vegana", quantidade: 4, preco: "R$32,00", mesa: "M2", metodoPagamento: "Pix", imagem: "/public/css,js/img/prato-2.png" },
+            // { nomePrato: "Salada Vegana", quantidade: 4, preco: "R$32,00", mesa: "M2", metodoPagamento: "Pix", imagem: "/public/css,js/img/prato-2.png" },
+            
+            // // Mesa 3
+            // { nomePrato: "Salada Vegana", quantidade: 4, preco: "R$32,00", mesa: "M3", metodoPagamento: "Pix", imagem: "/public/css,js/img/prato-2.png" },
+            // { nomePrato: "Salada Vegana", quantidade: 4, preco: "R$32,00", mesa: "M3", metodoPagamento: "Pix", imagem: "/public/css,js/img/prato-2.png" },
+            // { nomePrato: "Salada Vegana", quantidade: 4, preco: "R$32,00", mesa: "M3", metodoPagamento: "Pix", imagem: "/public/css,js/img/prato-2.png" },
+            // { nomePrato: "Salada Vegana", quantidade: 4, preco: "R$32,00", mesa: "M3", metodoPagamento: "Pix", imagem: "/public/css,js/img/prato-2.png" },
+            
+            // // Mesa 4
+            // { nomePrato: "Salada Vegana", quantidade: 4, preco: "R$32,00", mesa: "M4", metodoPagamento: "Pix", imagem: "/public/css,js/img/prato-2.png" },
+            // { nomePrato: "Salada Vegana", quantidade: 4, preco: "R$32,00", mesa: "M4", metodoPagamento: "Pix", imagem: "/public/css,js/img/prato-2.png" },
+            // { nomePrato: "Salada Vegana", quantidade: 4, preco: "R$32,00", mesa: "M4", metodoPagamento: "Pix", imagem: "/public/css,js/img/prato-2.png" },
+            // { nomePrato: "Salada Vegana", quantidade: 4, preco: "R$32,00", mesa: "M4", metodoPagamento: "Pix", imagem: "/public/css,js/img/prato-2.png" },
+            
+            // // Mesa 5
+            // { nomePrato: "Salada Vegana", quantidade: 4, preco: "R$32,00", mesa: "M5", metodoPagamento: "Pix", imagem: "/public/css,js/img/prato-2.png" },
+            // { nomePrato: "Salada Vegana", quantidade: 4, preco: "R$32,00", mesa: "M5", metodoPagamento: "Pix", imagem: "/public/css,js/img/prato-2.png" },
+            // { nomePrato: "Salada Vegana", quantidade: 4, preco: "R$32,00", mesa: "M5", metodoPagamento: "Pix", imagem: "/public/css,js/img/prato-2.png" },
+            // { nomePrato: "Salada Vegana", quantidade: 4, preco: "R$32,00", mesa: "M5", metodoPagamento: "Pix", imagem: "/public/css,js/img/prato-2.png" },
+        ];
 
     // Função para formatar a hora no formato desejado (horas:minutos AM/PM)
     function formatarHora(data) {
