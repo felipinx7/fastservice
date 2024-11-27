@@ -1259,10 +1259,10 @@ button {
     .finalizar{
         width: 32rem;
         height: 3rem;
-        margin-top: 22rem;
+        margin-top: 9.5rem;
     }
     .pagamentos{
-        transform: translateY(20rem);
+        transform: translateY(7rem);
     }
 
     .cart-summary{
@@ -1399,7 +1399,10 @@ button {
     .success-button-secondary{
         transform: translate(14rem,-48rem);
     }
-
+    .container-pratos{
+        max-height: 40rem;
+        height: 100%;
+    }
     .h3-parte-ava{
         margin-top: 1rem;
     }
