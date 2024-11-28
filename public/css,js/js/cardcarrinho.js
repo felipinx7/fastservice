@@ -1,6 +1,8 @@
 const totaltudo = document.querySelector('.totaltudo');
 const extratofinal = document.querySelector('.preçototall');
+
 const carrinho = document.getElementById('carrinho');
+
 const paymentButtons = document.querySelectorAll('.butao-parte--carrinho');
 const totalPaymentMethod = document.querySelector('.payment-method');
 
@@ -33,6 +35,40 @@ function mostrarAdicionar(button) {
 
     // Adicionando o item no carrinho
     carrinho.appendChild(itemCarrinho);
+
+    // Consome a API para registrar o pedido
+    const idMesa = 1; // Substitua pelo ID da mesa correto, caso esteja disponível dinamicamente
+    fetch(`/pedido/${idMesa}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        // Nadyson
+        /**
+         * Aqui tu precisa achar onde ficam todos os itens e criar uma função para que quando finalizar chame essa rota com o fetch(`/pedido/${idMesa}`
+         *  */ 
+        body: JSON.stringify({
+            itens: [
+                {
+                    nome: titulo,
+                    preco: preco,
+                    quantidade,
+                },
+            ]
+        }),
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao registrar pedido na API');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Pedido registrado com sucesso:', data);
+        })
+        .catch(error => {
+            console.error('Erro ao consumir a API /pedido/:id_mesa:', error);
+        });
 
     // Adiciona o evento de clique para remover o item e atualizar total
     itemCarrinho.querySelector('.btn-remover').addEventListener('click', function () {
@@ -188,18 +224,16 @@ function carregarPratos() {
 
 window.onload = carregarPratos;
 
-
-
 // Função para lidar com a escolha do método de pagamento
 paymentButtons.forEach(button => {
     button.addEventListener('click', function () {
-        const metodoPagamento = this.getAttribute('data-pagamento');  
+        const metodoPagamento = this.getAttribute('data-pagamento');
 
         // Exibir o método de pagamento selecionado
         if (totalPaymentMethod) {
             totalPaymentMethod.textContent = `Método de Pagamento: ${metodoPagamento.charAt(0).toUpperCase() + metodoPagamento.slice(1)}`;
         }
-        paymentButtons.forEach(btn => btn.classList.remove('selected')); 
-        this.classList.add('selected');  
+        paymentButtons.forEach(btn => btn.classList.remove('selected'));
+        this.classList.add('selected');
     });
 });

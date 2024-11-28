@@ -30,18 +30,18 @@ model Avaliacao {
 }
 
 model Pedido {
-  id_pedido Int     @id @default(autoincrement())
+  id_pedido Int          @id @default(autoincrement())
   id_mesa   Int
-  status    String  @default("pendente")
-  dataed    DateTime @default(now())
+  status    String       @default("pendente")
+  dataed    DateTime     @default(now())
   itens     ItemPedido[]
 }
 
 model ItemPedido {
-  id_item    Int      @id @default(autoincrement())
+  id_item    Int    @id @default(autoincrement())
   id_pedido  Int
   nome       String
-  preco      Int
+  preco      String
   quantidade Int
-  pedido     Pedido   @relation(fields: [id_pedido], references: [id_pedido])
+  pedido     Pedido @relation(fields: [id_pedido], references: [id_pedido])
 }

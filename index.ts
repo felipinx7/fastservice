@@ -43,6 +43,58 @@ app.get('/cardapio', (req: Request, res: Response) => {
     res.render('balconista');
 });
 
+// 1. Página para criar pedidos
+app.get("/pedido/criar", (req, res) => {
+    res.render("criar-pedido", { id_mesa: null }); // `id_mesa` pode ser ajustado conforme necessário
+});
+
+// 2. Página para listar pedidos por mesa
+app.get("/pedido/mesa/:id_mesa", async (req, res) => {
+    const { id_mesa } = req.params;
+
+    try {
+        const pedidos = await prisma.pedido.findMany({
+            where: { id_mesa: parseInt(id_mesa) },
+            include: { itens: true },
+        });
+        res.render("listar-pedidos", { id_mesa, pedidos });
+    } catch (error: any) {
+        res.status(500).send("Erro ao buscar pedidos: " + error.message);
+    }
+});
+
+// 3. Página para exibir o cardápio e adicionar itens ao pedido
+app.get("/cardapio/:id_mesa", async (req, res: any) => {
+    const { id_mesa } = req.params;
+    try {
+        const cardapio = await prisma.cardapio.findMany();
+        return res.json({cardapio})
+    } catch (error: any) {
+        res.status(500).send("Erro ao buscar o cardápio: " + error.message);
+    }
+});
+
+// 4. Adicionar itens ao pedido
+app.post("/pedido/:id_mesa", async (req, res) => {
+    const { id_mesa } = req.params;
+    const { itens } = req.body;
+
+    console.log(id_mesa, itens)
+
+    await prisma.pedido.create({
+        data: {
+            id_mesa: parseInt(id_mesa),
+            itens: {
+                create: itens.map((item: any) => ({
+                    nome: item.nome,
+                    preco: item.preco,
+                    quantidade: item.quantidade,
+                })),
+            },
+        },
+    });
+});
+
 app.post('/cadastrar-prato', upload.single('foto'), async (req: Request, res: Response) => {
     try {
         const { nome, categoria, preco } = req.body;
@@ -53,7 +105,7 @@ app.post('/cadastrar-prato', upload.single('foto'), async (req: Request, res: Re
         });
 
         res.redirect('/cardapio');
-    } catch (error) {
+    } catch (error: any) {
         console.error(error);
         res.status(500).send('Erro ao cadastrar o prato');
     }
@@ -70,6 +122,7 @@ app.get('/balconista', (req: Request, res: Response) => {
 app.get('/pratos-cadastrados', async (req: Request, res: Response) => {
     try {
         const pratos = await prisma.cardapio.findMany();
+
         res.json(pratos);
     } catch (error) {
         console.error('Erro ao buscar pratos:', error);
