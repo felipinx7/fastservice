@@ -1113,7 +1113,10 @@ button {
 .container-bebidas {
     margin-top: 20rem;
 }
-
+.container-pratos{
+    max-height: 25rem;
+    height: 100%;
+}
 /*=====================================PARTE RESPONSIVIDADE =====================================*/
 @media screen and (max-width: 1000px) {
     html{
@@ -1128,9 +1131,10 @@ button {
     }
 
     .container-carrinho {
-        position: absolute;
+        position: fixed;
         width: 100%;
-        height: 100%;
+        height: 110%;
+        overflow-y: hidden;
         display: none;
         transition: all 0.3s;
         z-index: 3;
@@ -1259,10 +1263,11 @@ button {
     .finalizar{
         width: 32rem;
         height: 3rem;
-        margin-top: 9.5rem;
+        margin-top: 5rem;
     }
     .pagamentos{
-        transform: translateY(7rem);
+        position: relative;
+        top: 4rem;
     }
 
     .cart-summary{
@@ -1309,7 +1314,7 @@ button {
     .h1-de-doces,
     .h1-de-favorito {
         text-align: center;
-        margin-top: 2rem;
+        margin-top: 3rem;
     }
     .parte-navigation{
         width: 10rem;
@@ -1317,7 +1322,7 @@ button {
         margin-left: 13rem;
     }
     .swiper-pagination{
-        transform: translateY(-13.3rem);
+        transform: translateY(-8.9rem);
     }
     .container-pratos-menu,
     .container-parte-bebidas,
@@ -1326,7 +1331,6 @@ button {
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
-        justify-content: space-between;
         gap: 1rem;
         overflow-y: auto;
         position: relative;
@@ -1335,6 +1339,7 @@ button {
         width: 38rem;
         margin-left: 0.5rem;
         top: 1rem;
+        padding: 3rem auto;
     }
     .container-parte-promocao{
         display: flex;
@@ -1346,7 +1351,7 @@ button {
         position: relative;
         height: 100%;
         max-height: 40rem;
-        width: 38rem;
+        width: 39rem;
         margin-left: 0.5rem;
     }
     .h1-da-promocao{
@@ -1355,10 +1360,13 @@ button {
     .h1-de-favorito{
         margin-top: -1rem;
     }
+    .h1-de-doces{
+        margin-top: -16rem;
+    }
     .card {
         position: relative;
-        width: calc((210% - 2rem) / 2);
-        height: 25vh;
+        width: calc((180% - 2rem) / 2);
+        height: 100%;
         background-color: white;
         text-align: center;
         pointer-events: auto;
@@ -1368,7 +1376,7 @@ button {
         overflow: hidden;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         margin: 0;
-        z-index: 0;
+        z-index: 1;
     }
     .icon-pesquisa{
         display: none;
@@ -1385,6 +1393,7 @@ button {
         width: 33rem;
         height: 45rem;
         margin-left: -17rem;
+        margin-top: -5rem;
     }
     
     .icone-pagamneto-ip{
@@ -1400,7 +1409,7 @@ button {
         transform: translate(14rem,-48rem);
     }
     .container-pratos{
-        max-height: 40rem;
+        max-height: 18rem;
         height: 100%;
     }
     .h3-parte-ava{
@@ -1414,7 +1423,6 @@ button {
     }
     .input-icons{
         margin-left: 7rem;
-        transform: translateY(-0.5rem);
+        transform: translateY(-10%);
     }
-
 }
